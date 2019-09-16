@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="ISO-8859-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bootstrap User Management Data Table</title>
@@ -30,6 +30,54 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('[data-toggle="tooltip"]').tooltip();
+		
+		$("#btn-get-records-page").click(function() {
+
+			$.ajax({
+				url : "/TicketsO/api/getPagingContent",
+				type : "GET",
+				data : {
+					page : 1,
+					numPerPage : 2,
+				},
+				success : function(value) {
+					var data = $.parseJSON(value);
+					$.each(data, function (i, item) {
+						
+						var imgTag = $("<img>").attr({"src":"/examples/images/avatar/1.jpg", 
+														"alt":"Avatar", "class":"avatar"});
+						var aTagAvatar = $("<a>").prop({"href":"#"});
+						aTagAvatar.append(imgTag, item.name);
+						
+						var spanTagStatus = $("span").attr({"class":"status text-danger"});
+						spanTagStatus.html("&bull;");
+						
+						var iTagIconSetting = $("<i>").attr({"class":"material-icons"});
+						var iTagIconDelete = $("<i>").attr({"class":"material-icons"});
+						iTagIconSetting.html("&#xE8B8;");
+						iTagIconDelete.html("&#xE5C9;");
+						var aTagSetting = $("<a>").attr({"href":"#", "class":"settings", "title":"Settings", 
+														"data-toggle":"tooltip"});
+						var aTagDelete = $("<a>").attr({"href":"#", "class":"delete", "title":"Delete", 
+														"data-toggle":"tooltip"});
+						
+						aTagSetting.append(iTagIconSetting);
+						aTagDelete.append(iTagIconDelete);
+						
+				        $("<tr>").append(
+				        $("<td>").text(1),
+				        $("<td>").append(aTagAvatar),
+				        $('<td>').text(item.password),
+				        $('<td>').text("null"),
+				        $('<td>').append(spanTagStatus),
+				        $('<td>').text(item.id),
+				        $('<td>').append(aTagSetting, aTagDelete)
+				        ).appendTo('#records_table');
+				    });
+				}
+			})
+
+		});
 	});
 
 	function func_nextPage() {
@@ -48,13 +96,22 @@
 						</h2>
 					</div>
 					<div class="col-sm-7">
-						<a href="#" class="btn btn-primary"><i class="material-icons">&#xE147;</i>
-							<span>Add New User</span></a> <a href="#" class="btn btn-primary"><i
-							class="material-icons">&#xE24D;</i> <span>Export to Excel</span></a>
+						<a href="#" class="btn btn-primary">
+							<i class="material-icons">&#xE147;</i>
+							<span>Add New User</span>
+						</a> 
+						<a href="#" class="btn btn-primary">
+							<i class="material-icons">&#xE24D;</i> 
+							<span>Export to Excel</span>
+						</a>
+						<a id="btn-get-records-page" href="#" class="btn btn-primary">
+							<span>Click Here</span>
+						</a>
 					</div>
 				</div>
 			</div>
-			<table class="table table-striped table-hover">
+			<div id="dynamic-table">
+			<table id="records_table" class="table table-striped table-hover">
 				<thead>
 					<tr>
 						<th>#</th>
@@ -83,6 +140,7 @@
 					</c:forEach>
 				</tbody>
 			</table>
+			</div>
 			<div class="clearfix">
 				<div class="hint-text">
 					Showing <b>${num_per_page}</b> out of <b>${quantity}</b> entries
