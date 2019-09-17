@@ -38,9 +38,16 @@
 				type : "GET",
 				data : {
 					page : 1,
-					numPerPage : 2,
+					numPerPage : 5,
 				},
 				success : function(value) {
+					
+					$("#records_table tbody").each(function(){
+						console.log(this);
+						$(this).remove();
+						
+					});
+					
 					var data = $.parseJSON(value);
 					$.each(data, function (i, item) {
 						
@@ -49,7 +56,7 @@
 						var aTagAvatar = $("<a>").prop({"href":"#"});
 						aTagAvatar.append(imgTag, item.name);
 						
-						var spanTagStatus = $("span").attr({"class":"status text-danger"});
+						var spanTagStatus = $("<span>").attr({"class":"status text-danger"});
 						spanTagStatus.html("&bull;");
 						
 						var iTagIconSetting = $("<i>").attr({"class":"material-icons"});
@@ -62,21 +69,27 @@
 														"data-toggle":"tooltip"});
 						
 						aTagSetting.append(iTagIconSetting);
-						aTagDelete.append(iTagIconDelete);
+						aTagDelete.append(iTagIconDelete).click(function(){
+							$(this).parents("tr").remove();
+						});
 						
 				        $("<tr>").append(
-				        $("<td>").text(1),
+				        $("<td>").text(item.id),
 				        $("<td>").append(aTagAvatar),
 				        $('<td>').text(item.password),
 				        $('<td>').text("null"),
-				        $('<td>').append(spanTagStatus),
-				        $('<td>').text(item.id),
+				        $('<td>').text(""),
+				        $('<td>').append(spanTagStatus, " Active"),
 				        $('<td>').append(aTagSetting, aTagDelete)
 				        ).appendTo('#records_table');
 				    });
 				}
 			})
 
+		});
+		
+		$("#records_table tbody tr .delete").click(function(){
+			$(this).parents("tr").remove();
 		});
 	});
 
@@ -86,6 +99,7 @@
 </script>
 </head>
 <body>
+
 	<div class="container">
 		<div class="table-wrapper">
 			<div class="table-title">
@@ -126,7 +140,7 @@
 				<tbody>
 					<c:forEach items="${listUser}" var="element">
 						<tr>
-							<td>1</td>
+							<td>${element.id}</td>
 							<td><a href="#"><img src="/examples/images/avatar/1.jpg" class="avatar" alt="Avatar">${element.name}</a></td>
 							<td>${element.password}</td>
 							<td>null</td>
