@@ -48,6 +48,8 @@ public class ApiController {
 			System.out.println(val.toString());
 		});
 		
+		le.remove(le.get(le.size() - 1));
+		
 		String json = new Gson().toJson(le);
 		return json;
 	}

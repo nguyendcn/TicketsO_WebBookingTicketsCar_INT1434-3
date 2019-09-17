@@ -22,6 +22,17 @@ public class User {
 	@Column(name = "password")
 	private String password;
 
+	public User() {
+		this.id = 99999999;
+		this.name = this.password = "default";
+	}
+	
+	public User(int id, String name, String password) {
+		this.id = id;
+		this.name = name;
+		this.password = password;
+	}
+	
 	public int getId() {
 		return id;
 	}

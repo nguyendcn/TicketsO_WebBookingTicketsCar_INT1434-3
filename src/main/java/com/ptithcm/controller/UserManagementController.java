@@ -19,14 +19,17 @@ public class UserManagementController {
 	
 	@RequestMapping("/dashboard/user/management")
 	public String init_m(ModelMap modelMap) {
-		List<User> le = userServiceImp.findAll();
+		List<User> le = userServiceImp.findByPage(1, 5);
+		int quantity = Integer.parseInt(le.get(le.size() - 1).getPassword());
+		
+		le.remove(le.get(le.size() - 1));
 		
 		modelMap.addAttribute("listUser", le);
 		modelMap.addAttribute("current_page", 1);
 		
 		int showing = 5 > le.size() ? le.size() : 5;
 		modelMap.addAttribute("num_per_page", showing);
-		modelMap.addAttribute("quantity", le.size());
+		modelMap.addAttribute("quantity", quantity);
 		return "dashboard/user/management";
 	}
 	
