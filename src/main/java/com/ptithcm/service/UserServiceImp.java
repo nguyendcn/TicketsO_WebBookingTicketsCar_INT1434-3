@@ -45,11 +45,19 @@ public class UserServiceImp implements ServicesBase<User> {
 
 	}
 	
+	public int deleteUserById(int id) {
+		return userDAO.deleteUserById(id);
+	}
+	
 	public boolean checkLogin(String username, String passwork) {
 		return userDAO.checkLogin(username, passwork);
 	}
 	
 	public List<User> findByPage(int page, int numPerPage){
 		return userDAO.findByPage(page, numPerPage);
+	}
+	
+	public int getQuantityUser() {
+		return userDAO.getQuantityUser();
 	}
 }

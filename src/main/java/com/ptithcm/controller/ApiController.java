@@ -53,6 +53,25 @@ public class ApiController {
 		String json = new Gson().toJson(le);
 		return json;
 	}
+	
+	@GetMapping("delRecordById")
+	@ResponseBody
+	public String delUserById(@RequestParam int idRecord) {
+		int affectRows = userServiceImp.deleteUserById(idRecord);
+		
+		if(affectRows > 0) {
+			return ("Delete userId =" + idRecord + " has success.");
+		}else{
+			return "Does not user had deleted.";
+		}
+	}
+	
+	@GetMapping("getQuantityUser")
+	@ResponseBody
+	public String getQuantityUser() {
+		int quantity = userServiceImp.getQuantityUser();
+		return quantity + "";
+	}
 
 	@RequestMapping("/testapi")
 	@ResponseBody

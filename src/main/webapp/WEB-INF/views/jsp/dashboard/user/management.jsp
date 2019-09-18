@@ -31,27 +31,35 @@
 	$(document).ready(function() {
 		$('[data-toggle="tooltip"]').tooltip();
 		
-		
-		
 		$(".pagination #page-next").click(func_nextPageClick);
+		$(".pagination #page-previous").click(func_previousPageClick);
 		
-		$("#records_table tbody tr .delete").click(func_delTRTag());
+		$("#records_table tbody tr .delete").click(func_delRecordClick);
 	});
+
+	function func_delRecordClick(){
+		var aTag = (($(this).parents("tr").get(0)).getElementsByClassName("col-id"));
+		var idRecord = $($(aTag).get(0)).text();
+		
+		func_delRecordById(idRecord);
+		
+	}
 
 	function func_updatePaging(page, quantityPage){
 		$(".pagination").html("");
 		
 		$(".pagination").append("<li id='page-previous' class='page-item disabled'><a href='#'>Previous</a></li>")
+		$("#page-previous").click(func_previousPageClick);
 		if(quantityPage <= 5){
-			for(var i = 0; i < 5; i++){
+			for(var i = 0; i < quantityPage; i++){
 				var liTag;
-				console.log(i);
 				if(page == (i + 1)){
 					liTag = $("<li>").addClass("page-item active");
 				} else{
 					liTag = $("<li>").addClass("page-item");
 				}
 				var aTag = $("<a>").prop({"href":"#", "class":"page-link", "text":(i + 1)});
+				liTag.click(func_pageClick);
 				liTag.append(aTag).appendTo(".pagination");
 			}
 		}
@@ -61,25 +69,92 @@
 		$("#page-next").click(func_nextPageClick);
 	}
 	
+	function func_pageClick(){
+		var nextPage = parseInt($(this).text(), 10);
+		var numPerPage= $("#num-per-page").text();
+
+		func_getRecordsByPage(nextPage, numPerPage);
+	}
+
 	function func_nextPageClick(){
-		console.log(this.id);
 		var nextPage = parseInt($(".active").text(), 10) + parseInt(1, 10);
 		var numPerPage= $("#num-per-page").text();
-		var quantityObject = parseInt($("#quantity-object").text(), 10);
-		var quantityPage = quantityObject / numPerPage ;
-		
-		if(quantityObject % numPerPage != 0)
-			quantityPage+=1;
-		
+
+		func_getRecordsByPage(nextPage, numPerPage);
+	}
+
+	function func_previousPageClick(){
+		var nextPage = parseInt($(".active").text(), 10) - parseInt(1, 10);
+		var numPerPage= $("#num-per-page").text();
+
+		func_getRecordsByPage(nextPage, numPerPage);
+	}
+
+	function func_delRecordById(idRecord){
+		$.ajax({
+			url: "/TicketsO/api/delRecordById",
+			type: "GET",
+			data: {
+				idRecord : idRecord 
+			},
+			success: function(value){
+				console.log(value);
+				func_updateTotalUser();
+				func_updateTableBeforeDeleteRecord();
+			},
+			error: function(value){
+				alert(value);
+			}
+		})
+	}
+
+	function func_updateTotalUser(){
+		$.ajax({
+			url: "/TicketsO/api/getQuantityUser",
+			type: "GET",
+			data: {},
+			success: function(value){
+				$("#quantity-object").text(value);
+				if(value <= ($("#num-per-page").text())){
+					$("#num-per-page").text(value);
+				}
+			},
+			error: function(value){
+				alert(value);
+			}
+		})
+	}
+
+	function func_updateTableBeforeDeleteRecord(){
+		var page = parseInt($(".active").text(), 10);
+		var numPerPage= $("#num-per-page").text();
+
+		func_getRecordsByPage(page, numPerPage);
+	}
+
+	function func_getRecordsByPage(page, numPerPage){
+	
+		var quantityPage = func_calQuantityPage();
+
 		func_removeULPaging();
 		
-		func_updatePaging(nextPage, quantityPage);
+		func_updatePaging(page, quantityPage);
 		
-		$("#page-next").prop("disabled", true);
-		func_setPropNextPreBtn(nextPage, quantityPage);
+		func_setPropNextPreBtn(page, quantityPage);
 		
-		func_getRecords(nextPage, numPerPage); 
+		func_getRecords(page, numPerPage); 
 	}
+
+function func_calQuantityPage() {
+	var numPerPage= $("#num-per-page").text();
+	var quantityObject = parseInt($("#quantity-object").text(), 10);
+	var quantityPage = quantityObject / numPerPage ;
+
+	if(quantityObject % numPerPage != 0)
+			quantityPage+=1;
+	quantityPage = Math.floor(quantityPage);
+	return quantityPage;
+}
 	
 	function func_getRecords(page, numPerPage){
 		$.ajax({
@@ -124,12 +199,15 @@
 											"data-toggle":"tooltip"});
 			
 			aTagSetting.append(iTagIconSetting);
-			aTagDelete.append(iTagIconDelete).click(function(){
-				$(this).parents("tr").remove();
-			});
+			// aTagDelete.append(iTagIconDelete).click(function(){
+			// 	$(this).parents("tr").remove();
+			// })
+			aTagDelete.append(iTagIconDelete).click(func_delRecordClick);
 			
+			var tdTag = $("<td>").prop({"class":"col-id"});
+
 	        $("<tr>").append(
-	        $("<td>").text(item.id),
+	        tdTag.text(item.id),
 	        $("<td>").append(aTagAvatar),
 	        $('<td>').text(item.password),
 	        $('<td>').text("null"),
@@ -139,14 +217,17 @@
 	        ).appendTo('#records_table');
 	    });
 	}
-	
+
 	function func_setPropNextPreBtn(currentPage, quantityPage){
 		if(quantityPage == 0 || quantityPage == 1){
-            $("#page-previous").prop({"class":"page-item disabled"}).off("click");
+            $("#page-previous").prop({"class":"page-item disabled"});
             $("#page-next").prop({"class":"page-item disabled"});
+			$("#page-previous").off("click");
+			$("#page-next").off("click");
         } else{
             if(currentPage == 1){
                 $("#page-previous").prop({"class":"page-item disabled"});
+				$("#page-previous").off("click");
             } else if(currentPage > 1){
                 $("#page-previous").prop({"class":"page-item"});
             }
@@ -154,6 +235,7 @@
             if(currentPage == quantityPage){
                 $("#page-next").prop({"class":"page-item disabled"});
                 $("#page-next").off("click");
+               
             } else if(currentPage < quantityPage){
                 $("#page-next").prop({"class":"page-item"});
             }
@@ -174,10 +256,15 @@
 			
 		});
 	}
-	
-	function func_delTRTag() {
-		$(this).parents("tr").remove();
-	}
+
+	function codeAddress() {
+		func_getRecords(1, 5);
+
+		var quantityPage = func_calQuantityPage();
+		func_updatePaging(1, quantityPage);
+		func_setPropNextPreBtn(1, quantityPage);
+    }
+    window.onload = codeAddress;
 </script>
 </head>
 <body>
@@ -242,11 +329,6 @@
 				</div>
 				<ul class="pagination">
 					<li id="page-previous" class="page-item disabled"><a href="#">Previous</a></li>
-					<li class="page-item "><a href="#" class="page-link">1</a></li>
-					<li class="page-item active"><a href="#" class="page-link">2</a></li>
-					<li class="page-item "><a href="#" class="page-link">3</a></li>
-					<li class="page-item"><a href="#" class="page-link">4</a></li>
-					<li class="page-item"><a href="#" class="page-link">5</a></li>
 					<li id="page-next" class="page-item"><a href="#"
 						class="page-link">Next</a></li>
 				</ul>
@@ -254,4 +336,9 @@
 		</div>
 	</div>
 </body>
+
+<script type="text/javascript">
+
+</script>
+
 </html>

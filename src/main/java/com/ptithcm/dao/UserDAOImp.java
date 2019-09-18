@@ -3,6 +3,9 @@ package com.ptithcm.dao;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.ParameterMode;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.procedure.ProcedureCall;
@@ -45,12 +48,29 @@ public class UserDAOImp implements DAOBase<User> {
 		Session session = this.sessionFactory.getCurrentSession();
 		return session.createQuery("FROM User", User.class).getResultList();
 	}
+	
+	public int deleteUserById(int id) {
+		Session session = this.sessionFactory.getCurrentSession();
+		
+		ProcedureCall pc = session.createStoredProcedureCall("sp_User_DeleteUsersById");
+		pc.registerParameter("idUser", Integer.class, ParameterMode.IN).bindValue(id);
+		
+		int affectRows = pc.executeUpdate();
+
+		return affectRows;
+	}
+	
+	public int getQuantityUser() {
+		Session session = this.sessionFactory.getCurrentSession();
+
+		ProcedureCall pc = session.createStoredProcedureCall("sp_Users_GetQuantityUser");
+		return ((BigInteger) pc.getResultList().get(0)).intValue();
+	}
 
 	public List<User> findByPage(int page, int numPerPage) {
 		Session session = this.sessionFactory.getCurrentSession();
 
-		ProcedureCall pc = session.createStoredProcedureCall("sp_Users_GetQuantityUser");
-		int quantity = ((BigInteger) pc.getResultList().get(0)).intValue();
+		int quantity = getQuantityUser();
 
 		List<User> listResult = new ArrayList<User>();
 		try {
