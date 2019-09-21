@@ -70,8 +70,6 @@ public class UserDAOImp implements DAOBase<User> {
 	public List<User> findByPage(int page, int numPerPage) {
 		Session session = this.sessionFactory.getCurrentSession();
 
-		int quantity = getQuantityUser();
-
 		List<User> listResult = new ArrayList<User>();
 		try {
 			int startPoint = (page - 1) * numPerPage;
@@ -84,8 +82,6 @@ public class UserDAOImp implements DAOBase<User> {
 					listResult.add(listUser.get(i));
 				}
 			}
-
-			listResult.add(new User(-1, "", quantity + ""));
 
 			return listResult;
 		} catch (Exception ex) {

@@ -19,7 +19,22 @@ public class UserManagementController {
 	UserServiceImp userServiceImp;
 	
 	@RequestMapping("/show")
-	public String showListUsers(){
+	public String showListUsers(ModelMap modelMap){
+		
+		int quantityUser =userServiceImp.getQuantityUser();
+		List<User> le = userServiceImp.findByPage(1, 10); 
+		
+		le.forEach(val->{
+			System.out.println(val.toString());
+		});
+		
+		modelMap.addAttribute("listUsers", le);
+		modelMap.addAttribute("quantityUsers", quantityUser);
+		modelMap.addAttribute("currentPage", 1);
+		modelMap.addAttribute("quantityPage", calQuantityPage(quantityUser, 10));
+		
+		System.out.println("quantity-page: " + quantityUser + "| current-page: " + 1 + "| quantity-page: " + calQuantityPage(quantityUser, 10));
+		
 		return "dashboard/user-management/user-list";
 	}
 	
@@ -65,5 +80,13 @@ public class UserManagementController {
 		modelMap.addAttribute("quantity", le.size());
 		
 		return "dashboard/users/management";
+	}
+	
+	public int calQuantityPage(int totalRecords, int recordPerPage) {
+		if(totalRecords % recordPerPage == 0) {
+			return (totalRecords / recordPerPage);
+		}else {
+			return ((totalRecords / recordPerPage) + 1);
+		}
 	}
 }
