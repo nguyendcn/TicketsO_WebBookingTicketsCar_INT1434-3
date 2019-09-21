@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class StartPageController {
 	@RequestMapping()
 	public String redirex() {
-		return "redirect:dashboard/user/login";
+		//return "redirect:dashboard/user/login";
+		return "dashboard/user/admin-login";
 	}
 }
