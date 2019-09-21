@@ -1,0 +1,494 @@
+@CHARSET "UTF-8";
+#morris-one-line-chart { height: 122px; }
+.ibox-morris { background-color: #fff; padding-left: 10px; padding-right: 10px; border-top: 1px solid #e7eaec;}
+
+.col-custom-2 { float: left; width: 20%; padding: 0 15px; }
+
+.item-image-content { float: left; padding-left: 15px; }
+
+.item-image-thumb img { float: left; padding-top: 5px; max-width: 120px;}
+		
+.item-image-thumb-dashboard img{
+	width: 30%;
+}
+.item-image-thumb-dashboard .item-image-content{
+	width: 70%;
+}
+.bus-schedule-no-border{
+	border: none !important;
+}
+.bus-schedule-height .form-group{
+	min-height: 85px;	
+}
+
+.empty {
+    background-color: #135E8D;
+    color: #FFFFFF;
+}
+
+.t5{margin-top: 5px;}
+.r5{margin-right: 5px;}
+
+.pl0{
+	padding-left: 0 !important;
+}
+.pj-bus-schedule-image{
+	display: block;
+	overflow: hidden;
+	line-height: 20px;
+	margin-bottom: 10px;
+}
+.pj-bus-schedule-image a{
+	margin-right: 5px;
+}
+.pj-bus-schedule-image img{
+	max-width: 200px;
+}
+.b10{
+	padding-bottom: 10px !important;
+}
+.b0{
+	margin-bottom: 0px !important;
+}
+.width-100{
+	width: 100px !important;
+}
+.width-150{
+	width: 150px !important;
+}
+.width-auto{
+	width: auto !important;
+}
+
+.bs-location-list{
+	overflow: hidden;
+}
+
+.bs-location-row {
+	position: relative;
+}
+
+.google-map-canvas,
+.google-map-canvas * { -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; }
+.google-map-canvas img { max-width: none; }
+
+/*
+.bs-location-row{
+	display: block;
+	padding: 8px 0px; 
+	margin-bottom: 4px;
+	background-color: #ffffff;
+	border: 1px solid #ffffff;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	
+	position: relative;
+}
+.bs-location-row p{
+	margin-bottom: 0px !important;
+	padding: 0px 5px !important;
+}
+*/
+.location-icons{
+	overflow: hidden;
+	display: none;
+	position: absolute;
+	padding: 3px 6px;
+	right: 6px;
+	top: 6px;
+	background-color: #ffffff;
+}
+.location-icons [role="button"] {
+	display: block;
+	float: left;
+	height: 24px;
+	width: 23px;
+	margin-right: 4px;
+	text-align: center;
+}
+.location-icons .location-move-icon:hover {
+	cursor: move;
+}
+/*
+.bs-location-row:hover{
+	background-color: #f5f3f4;
+	border: 1px solid #c8cfd5;
+}
+*/
+.bs-location-row:hover .location-icons{
+	display: block;
+	margin-top: 20px;
+	/*background-color: #f5f3f4;*/
+}
+
+.bsMapHolder{
+	overflow: auto; 
+	max-width: 740px;
+	max-height: 300px;
+	margin-bottom: 12px;
+}
+
+.pj-bus-type-map { margin-top: 15px; }
+
+.pj-hide-count{
+	display: none;
+}
+
+/***********location grid**********/
+.pj-location-grid{
+	overflow: hidden;
+}
+.pj-location-grid table.display th { padding-left: 10px; padding-right: 10px; } 
+
+.pj-location-grid table.display td {
+    border-top: 1px solid #e5e6e7;
+}
+
+.pj-location-grid .pj-location-column table.display th,
+.pj-location-grid .pj-location-column table.display td { border-left: 1px solid #e5e6e7; }
+
+.pj-location-grid .pj-first-column table.display td{
+	color: #333;
+	font-size: 13px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.pj-location-grid .pj-first-column table.display td,
+.pj-location-grid .pj-first-column table.display th{
+	border-right: none;
+}
+.pj-location-grid .pj-first-column table.display th{
+	color: #acacab;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.pj-location-grid .pj-location-column table.display th{
+	color: #333;
+    font-size: 13px;
+}
+.pj-location-grid .pj-location-column table.display th a{
+	color: #369bcf;
+}
+.pj-first-column{
+	margin-top: 24px;
+    float: left;
+    overflow: hidden;
+}
+.pj-first-column table th,.pj-first-column table td {
+	width: 80px;
+	border-right: none;
+}
+.pj-first-column table td{
+	color: #474646;
+	font-size: 12px;
+}
+
+.pj-location-column table th.first-col, .pj-location-column table td.first-col {
+	border-left: none;
+}
+.pj-location-column table td{
+	color: #827f7f;
+}
+.pj-location-column table th .break{
+	height: 8px;
+}
+
+.compare_table,
+#compare_table {
+	margin-bottom: 4px;
+}
+table.compare_table td,
+table#compare_table td{
+	text-align: center;
+	padding: 10px !important;
+}
+table.compare_table td input,
+table#compare_table td input{
+	text-align: center;
+}
+.wrapper1,.wrapper2 {
+	overflow: auto; 
+	-ms-overflow-y: hidden;
+	overflow-y:hidden;
+}
+
+.wrapper1 {
+	height: 17px;
+	margin-bottom: 7px;
+}
+.wrapper2{
+	margin-top: 4px;
+}
+.div1-compare{
+	height: 20px;
+}
+
+.div2-compare{
+	overflow: auto;
+}
+
+.rect {
+    cursor: pointer;
+    display: block;
+    font-size: 0.9em;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    z-index: 1000;
+}
+
+.bs-booked{
+	background-color: #fe979b;
+}
+.bs-selected{
+	background-color: #5cccfa;
+}
+.bs-available{
+	cursor: pointer;
+}
+.bs-return-booked{
+	background-color: #fe979b;
+}
+.bs-return-selected{
+	background-color: #5cccfa;
+}
+.bs-return-available{
+	cursor: pointer;
+}
+.chzn-container{
+	float: left;
+}
+.bs-time{
+	display: block;
+	margin-top: 6px;
+}
+.bs-seats-legend{
+	overflow: hidden;
+}
+.bs-seats-legend label{
+	display: block;
+	float: left;
+	margin-right: 20px;
+	line-height: 20px;
+}
+.bs-seats-legend label span{
+	width: 20px;
+	height: 20px;
+	float: left;
+	margin-right: 5px;
+}
+.bs-seats-legend label span.bs-available-seats{
+	background-color: #135E8D;
+}
+.bs-seats-legend label span.bs-selected-seats{
+	background-color: #5cccfa;
+}
+.bs-seats-legend label span.bs-booked-seats{
+	background-color: #fe979b;
+}
+.pj-table td.bs-booked-seat{
+	background-color: #29b0e6 !important;
+	color: #fff;
+}
+
+.pj-table td.bs-booked-seat a { color: #fff; }
+
+table.display td.bs-booked-seat{
+	background-color: #29b0e6 !important;
+	color: #fff;
+	border-width: 2px;
+    border-collapse: collapse;
+}
+
+table.display td.bs-booked-seat a {
+	color: #fff;
+}
+
+.pj-first-column tbody tr { background-color: #fff; }
+.pj-first-column tbody tr:nth-child(even) { background-color: #f7f7f7; }
+
+.div2-compare tbody tr:nth-child(odd) { background-color: #f7f7f7; }
+.pj-first-column tbody .title-head-row,
+.div2-compare thead tr { background-color: #ebebeb; }
+
+.pj-first-column tbody .title-head-row,
+.pj-first-column .title-row td { font-size: 16px; font-weight: bold; }
+
+.compare-location { font-size: 15px; }
+
+.bs-seat-legends { background-color: rgba(0,0,0,0.05); border-radius: 5px; padding: 15px; font-size: 14px; line-height: 1.6; color: #333; } 
+
+.compare-departure { font-weight: normal; }
+
+.bs-booked{
+	background-color: #fe979b;
+}
+.bs-selected{
+	background-color: #5cccfa;
+}
+.bs-available{
+	cursor: pointer;
+}
+.bs-return-booked{
+	background-color: #fe979b;
+}
+.bs-return-selected{
+	background-color: #5cccfa;
+}
+.bs-return-available{
+	cursor: pointer;
+}
+.bs-time{
+	display: block;
+	margin-top: 6px;
+}
+
+.bs-seats-legend{
+	overflow: hidden;
+}
+.bs-seats-legend span{
+	width: 20px;
+	height: 20px;
+	margin-right: 5px;
+	display: block;
+	float: left;
+}
+.bs-seats-legend span.bs-available-seats{
+	background-color: #135E8D;
+}
+.bs-seats-legend span.bs-selected-seats{
+	background-color: #5cccfa;
+}
+.bs-seats-legend span.bs-booked-seats{
+	background-color: #fe979b;
+}
+
+.table td.bs-passed-date, .table td.bs-passed-date a{
+	color: #838282;
+}
+.table td.bs-bold-date{
+	font-weight: bold;
+}
+.ui-icon{background: none;}
+
+.bus-title{font-size: 16px;}
+.bus-subtitle{font-size: 12px; font-weight: normal;}
+
+.ibox-content-notification { position: relative; }
+
+.ibox-content-overlay { background-color: rgba(255,255,255,0.35); left: 0; position: absolute; top: 0; height: 100%; width: 100%; z-index: 2; display: none; }
+    
+.ibox-content-notification .sk-spinner-double-bounce.sk-spinner { position: absolute; top: 50%; left: 50%; margin: -20px 0 0 -20px; z-index: 3; }
+.notification-box .sk-spinner-double-bounce.sk-spinner { width: 40px; height: 40px; position: absolute; left: 100px; margin: -20px 0 0; z-index: 3; top: 50%; }
+
+.w60 { width: 60px; }
+.w90 { width: 90px; }
+
+.table-ticket-price .table > tbody > tr > th,
+.table-ticket-price .table > tbody > tr > td { width: 200px; }
+
+.table-ticket-price .table > tbody > tr > th:first-child,
+.table-ticket-price .table > tbody > tr > td:first-child { width: 280px; }
+
+.table-ticket-price .table > tbody > tr > th:nth-child(2),
+.table-ticket-price .table > tbody > tr > td:nth-child(2) { width: 170px; }
+
+.table-ticket-price .table > tbody > tr > th:last-child,
+.table-ticket-price .table > tbody > tr > td:last-child { width: auto; }
+
+.field-int-inline { display: inline-block; vertical-align: middle; }
+
+.panel-completed .panel-heading { background-color: #e5e9ef; border-bottom: 1px solid #e5e9ef; color: #293846; }
+.panel-completed .panel-body { border-color: #e5e9ef; border-top-left-radius: 0; border-top-right-radius: 0; }
+        
+.panel-completed .panel-heading .fa-caret-up { display: block; }
+.panel-completed .panel-heading .fa-caret-down { display: none; }
+.panel-completed .collapsed .fa-caret-up { display: none; }
+.panel-completed .collapsed .fa-caret-down { display: block; }
+    
+.bg-color-1 .ibox-heading { background-color: #d0efe9; }
+.bg-color-2 .ibox-heading { background-color: #d3eef8; }
+.bg-color-3 .ibox-heading { background-color: #fceedd; }
+.bg-color-4 .ibox-heading { background-color: #fadcdf; }
+
+.bg-color-1 .ibox-content > .fa { color: #1ab394; }
+.bg-color-2 .ibox-content > .fa { color: #29b0e6; }
+.bg-color-3 .ibox-content > .fa { color: #f8ac59; }
+.bg-color-4 .ibox-content > .fa { color: #ed5565; }
+.bg-color-5 .ibox-content > .fa { color: #f3f6fb; }
+
+.settings-box label { font-weight: 400; cursor: pointer; }
+.settings-box form h3 { font-weight: 700; }
+
+.radio-primary input[type="radio"]:checked + label::before { border-color: #29b0e6; }
+.radio-primary input[type="radio"]:checked + label::after { background-color: #29b0e6; }
+	
+.label-outline { border: 1px solid #d1dade; background-color: transparent; }
+.label-success.label-outline { border: 1px solid #1ab394; color: #1ab394; }
+.label-danger.label-outline { border: 1px solid #ed5565; color: #ed5565; }
+
+.lines-bus-stops { margin-bottom: 10px; }
+
+.has-error .select2-container--default .select2-selection--single, 
+.has-error .select2-container--default .select2-selection--multiple,
+.has-error .select2-container--default.select2-container--focus .select2-selection--single, 
+.has-error .select2-container--default.select2-container--focus .select2-selection--multiple {
+	border-color: #ed5565;
+}
+
+#tickets-details select.form-control { max-width: 160px!important; }
+
+}
+
+#tickets-details .table > thead > tr > th:first-child { width: 32%; } 
+#tickets-details .table > thead > tr > th:nth-child(2) { width: 17%; }
+#tickets-details .table > thead > tr > th:last-child { width: 51%; }
+
+/*
+#tickets-details .table > thead > tr > th:first-child, 
+#tickets-details .table > tbody > tr > td:first-child { min-width: 380px; }
+*/
+
+#frmCreateBooking .select2-container {
+	z-index: 2000;
+}
+
+@media (max-width:1440px){ 
+	.col-1of2 { width: 50%; }
+	.col-2of2 { width: 100%; }
+
+	.location-icons a { width: 18px; }
+}
+
+@media (max-width:1199px){
+	.table-ticket-price .table > tbody > tr > th,
+	.table-ticket-price .table > tbody > tr > td { min-width: 200px; }
+
+	.table-ticket-price .table > tbody > tr > th:first-child,
+	.table-ticket-price .table > tbody > tr > td:first-child { min-width: 280px; }
+
+	.table-ticket-price .table > tbody > tr > th:nth-child(2),
+	.table-ticket-price .table > tbody > tr > td:nth-child(2) { min-width: 170px; }
+
+	.table-ticket-price .table > tbody > tr > th:last-child,
+	.table-ticket-price .table > tbody > tr > td:last-child { min-width: 0; }
+
+	.col-1of2 { width: 100%; }
+}
+
+@media (max-width:767px){
+	.col-custom-2 { width: 33.3333%;} 
+
+	.ibox-content .col-custom-2 { margin-bottom: 10px; }
+
+	#tickets-details .table > thead > tr > th:first-child { width: 220px; min-width: 220px; } 
+	#tickets-details .table > thead > tr > th:nth-child(2) { width: 180px; min-width: 180px; }
+	#tickets-details .table > thead > tr > th:last-child { width: 300px; min-width: 300px; }
+
+}
+
+@media (max-width: 479px){
+	.col-custom-2 { width: 50%;} 
+}

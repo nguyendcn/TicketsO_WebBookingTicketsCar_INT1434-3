@@ -9,6 +9,6 @@ public class StartPageController {
 	@RequestMapping()
 	public String redirex() {
 		//return "redirect:dashboard/user/login";
-		return "dashboard/user/admin-login";
+		return "dashboard/mainDashboard";
 	}
 }

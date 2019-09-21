@@ -12,12 +12,28 @@ import com.ptithcm.entities.User;
 import com.ptithcm.service.UserServiceImp;
 
 @Controller
+@RequestMapping("/dashboard/users")
 public class UserManagementController {
 	
 	@Autowired
 	UserServiceImp userServiceImp;
 	
-	@RequestMapping("/dashboard/user/management")
+	@RequestMapping("/show")
+	public String showListUsers(){
+		return "dashboard/user-management/user-list";
+	}
+	
+	@RequestMapping("/edit")
+	public String editUser(){
+		return "dashboard/user-management/user-edit";
+	}
+	
+	@RequestMapping("/add")
+	public String addUser(){
+		return "dashboard/user-management/user-add";
+	}
+	
+	@RequestMapping("/management")
 	public String init_m(ModelMap modelMap) {
 		List<User> le = userServiceImp.findByPage(1, 5);
 		int quantity = Integer.parseInt(le.get(le.size() - 1).getPassword());
@@ -33,7 +49,7 @@ public class UserManagementController {
 		return "dashboard/user/management";
 	}
 	
-	@RequestMapping("/dashboard/user/management/getuserbypage")
+	@RequestMapping("/management/getuserbypage")
 	public String getUserByPage(@RequestParam int page, @RequestParam int numPerPage, ModelMap modelMap) {
 		
 		List<User> le = userServiceImp.findByPage(page, numPerPage);
@@ -48,6 +64,6 @@ public class UserManagementController {
 		modelMap.addAttribute("num_per_page", showing);
 		modelMap.addAttribute("quantity", le.size());
 		
-		return "dashboard/user/management";
+		return "dashboard/users/management";
 	}
 }
