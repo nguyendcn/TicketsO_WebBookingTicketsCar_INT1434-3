@@ -15,7 +15,7 @@
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/fonts/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/core/css/toastr.min.css">
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/core/css/ladda-themeless.min.css">
-            <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/dashboard/custom.css">
+            <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/core/icheck/1.0.2/custom.css">
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/core/css/jquery.gritter.css">
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/dashboard/sweetalert.css">
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/core/css/jquery.bootstrap-touchspin.min.css">
@@ -301,8 +301,12 @@
                                                                     </span><input type="hidden" data-name="status" class="pj-selector-editable" value="F"></td>
                                                                 <td>
                                                                     <div class="m-t-xs text-right">
-                                                                        <a href="http://trials.vevs.website/nguyenne/index.php?controller=pjCmsUsers&amp;action=pjActionUpdate&amp;id=1" class="btn btn-primary btn-outline btn-sm m-l-xs pj-table-icon-edit"><i class="fa fa-pencil"></i></a>
-                                                                        <a href="index.php?controller=pjCmsUsers&amp;action=pjActionDeleteUser&amp;id=3" class="btn btn-danger btn-outline btn-sm m-l-xs pj-table-icon-delete"><i class="fa fa-trash"></i></a>
+                                                                        <a href="/TicketsO/api/delRecordById?idRecord=${user.id}" class="btn btn-primary btn-outline btn-sm m-l-xs pj-table-icon-edit">
+                                                                            <i class="fa fa-pencil"></i>
+                                                                        </a>
+                                                                        <a href="/TicketsO/api/delRecordById?idRecord=${user.id}" class="btn btn-danger btn-outline btn-sm m-l-xs pj-table-icon-delete">
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </a>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -368,7 +372,16 @@
                                                 <div class="col-lg-7 col-md-5 col-sm-5">
                                                     <div class="form-inline show-total mobile-text-right">
                                                         <div class="form-group"><label>Show</label></div>
-                                                        <div class="form-group m-l-xs"><select class="form-control pj-selector-row-count"><option value="10">10</option><option value="20">20</option><option value="50">50</option><option value="100">100</option><option value="200">200</option><option value="500">500</option></select></div>
+                                                        <div class="form-group m-l-xs">
+                                                            <select class="form-control pj-selector-row-count">
+                                                                <option ${numPerPage== 10?'selected':''} value="10">10</option>
+                                                                <option ${numPerPage== 20?'selected':''} value="20">20</option>
+                                                                <option ${numPerPage== 50?'selected':''} value="50">50</option>
+                                                                <option ${numPerPage== 100?'selected':''} value="100">100</option>
+                                                                <option ${numPerPage== 200?'selected':''} value="200">200</option>
+                                                                <option ${numPerPage== 500?'selected':''} value="500">500</option>
+                                                            </select>
+                                                        </div>
                                                         <div class="form-group m-l-xs"><label>of <strong>${quantityUsers}</strong> total</label></div>
                                                     </div>
                                                 </div>
@@ -457,9 +470,9 @@
             <script src="${pageContext.request.contextPath}/resources/js/dashboard/index.php"></script>
             <script src="${pageContext.request.contextPath}/resources/js/dashboard/pjCmsKbase2.js"></script>
             <script src="${pageContext.request.contextPath}/resources/js/dashboard/inspinia.js"></script>
-            <script src="${pageContext.request.contextPath}/resources/js/dashboard/pjBusSchedule.js"></script>
             <script src="${pageContext.request.contextPath}/resources/js/dashboard/pjCmsCore.js"></script>
             <script src="${pageContext.request.contextPath}/resources/js/dashboard/jquery.datagrid.js"></script>
+            <script src="${pageContext.request.contextPath}/resources/core/icheck/1.0.2/icheck.min.js"></script>
             <script src="${pageContext.request.contextPath}/resources/js/dashboard/user.js"></script>
 
             <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>

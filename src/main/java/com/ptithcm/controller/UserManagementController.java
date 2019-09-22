@@ -32,6 +32,28 @@ public class UserManagementController {
 		modelMap.addAttribute("quantityUsers", quantityUser);
 		modelMap.addAttribute("currentPage", 1);
 		modelMap.addAttribute("quantityPage", calQuantityPage(quantityUser, 10));
+		modelMap.addAttribute("numPerPage", 10);
+		
+		System.out.println("quantity-page: " + quantityUser + "| current-page: " + 1 + "| quantity-page: " + calQuantityPage(quantityUser, 10));
+		
+		return "dashboard/user-management/user-list";
+	}
+	
+	@RequestMapping("/show/getUserByQuantity")
+	public String showListUsersByQuantity(@RequestParam int numPerPage, ModelMap modelMap){
+		
+		int quantityUser =userServiceImp.getQuantityUser();
+		List<User> le = userServiceImp.findByPage(1, numPerPage); 
+		
+		le.forEach(val->{
+			System.out.println(val.toString());
+		});
+		
+		modelMap.addAttribute("listUsers", le);
+		modelMap.addAttribute("quantityUsers", quantityUser);
+		modelMap.addAttribute("currentPage", 1);
+		modelMap.addAttribute("quantityPage", calQuantityPage(quantityUser, 10));
+		modelMap.addAttribute("numPerPage", numPerPage);
 		
 		System.out.println("quantity-page: " + quantityUser + "| current-page: " + 1 + "| quantity-page: " + calQuantityPage(quantityUser, 10));
 		
