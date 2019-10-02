@@ -11,7 +11,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
             <!-- Bootstrap Min CSS -->
-            <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/core/css/bootstrap.min.css">
+            <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/core/index-page/css/bootstrap.min.css">
             <!-- IcoFont Min CSS -->
             <link rel="stylesheet" href="css/icofont.min.css">
             <!-- Style CSS -->
@@ -665,13 +665,13 @@
             <!-- End Footer Area -->
 
             <!-- Jquery Min JS -->
-            <script src="${pageContext.request.contextPath}/resources/core/js/jquery.min.js"></script>
+            <script src="${pageContext.request.contextPath}/resources/core/index-page/js/jquery.min.js"></script>
             <!-- Owl Carousel Min JS -->
-            <script src="${pageContext.request.contextPath}/resources/core/js/owl.carousel.min.js"></script>
+            <script src="${pageContext.request.contextPath}/resources/core/index-page/js/owl.carousel.min.js"></script>
             <!-- Popper Min JS -->
-            <script src="${pageContext.request.contextPath}/resources/core/js/particles.min.js"></script>
+            <script src="${pageContext.request.contextPath}/resources/core/index-page/js/particles.min.js"></script>
             <!-- Bootstrap Min JS -->
-            <script src="${pageContext.request.contextPath}/resources/core/js/bootstrap.min.js"></script>
+            <script src="${pageContext.request.contextPath}/resources/core/index-page/js/bootstrap.min.js"></script>
             <!-- Main JS -->
             <script src="${pageContext.request.contextPath}/resources/js/index.js"></script>
         </body>

@@ -1,0 +1,229 @@
+#header-route {
+    margin-top: 100px;
+    margin-bottom: 10px;
+}
+
+.container-route {
+    max-width: 1170px!important;
+    padding: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.title-text-route {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 30px;
+    padding: 0;
+    margin: 10px 20px 0 50px;
+    text-align: left;
+}
+
+.route-title-bus-ticket {
+    float: right;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+.text-gray {
+    color: #ccc;
+    display: flex;
+}
+
+.ticket-search-filter {
+    background: #f9af00;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 10px 0;
+}
+
+.ticket-search-filter .form-inline {
+    padding: 5px 5px;
+}
+
+.ticket-search-filter .form-group {
+    position: relative;
+}
+
+.ticket-search-filter .location-search {
+    background: url(https://storage.googleapis.com/fe-production/images/location-v2.svg) 100% no-repeat #fff;
+    background-size: 16px;
+    background-position-x: 95%;
+}
+
+.ticket-search-filter input {
+    padding: 10px 30px 10px 10px;
+    background: #fff;
+    border: 0!important;
+    -moz-border-radius: 0;
+    border-radius: 5px!important;
+    width: 230px;
+}
+
+.ticket-search-filter .switchButton {
+    font-weight: 700;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 35px;
+    color: #fff;
+}
+
+.ticket-search-filter .departDate-fg {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.btn-vxr-lg,
+.glyphicon,
+.ticket-search-filter .form-group {
+    position: relative;
+}
+
+.form-inline .form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+.ticket-search-filter .departDate-fg .fa-caret-left {
+    font-size: 20px;
+    left: 5%;
+}
+
+.ticket-search-filter .departDate-fg .fa-caret-right {
+    font-size: 20px;
+    right: 55%;
+}
+
+.ticket-search-filter .form-group i {
+    position: absolute;
+    bottom: 10px;
+}
+
+.ticket-search-filter .calendar-search {
+    background: url(https://storage.googleapis.com/fe-production/images/calendar-v2.svg) 100% no-repeat #fff;
+    background-size: 20px;
+    background-position-x: 95%;
+    padding-left: 15%;
+}
+
+.ticket-search-filter input {
+    padding: 10px 30px 10px 10px;
+    background: #fff;
+    border: 0!important;
+    -moz-border-radius: 0;
+    border-radius: 5px!important;
+    width: 230px;
+}
+
+.ticket-search-filter .btn-today,
+.ticket-search-filter .btn-tomorrow {
+    margin: 0 0 0 10px;
+    background-color: #fff;
+    color: #333;
+    font-size: 15px;
+    border-radius: 5px!important;
+    border: 1px solid;
+}
+
+.btn-today,
+.btn-tomorrow {
+    margin-top: 13px;
+    font-size: 11px;
+    border-radius: 0;
+    padding: 8px;
+    margin-left: 0;
+}
+
+.fl {
+    float: left!important;
+}
+
+.ticket-search-filter #searchSubmit {
+    color: #fff;
+    background: #177bd0!important;
+    padding: 9px 25px;
+    border-radius: 5px!important;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+.road-point {
+    height: 100%;
+    overflow: hidden;
+}
+
+.animate_element,
+.road-point {
+    position: relative;
+    width: 100%;
+}
+
+.route-illus {
+    margin-top: 20px;
+}
+
+.route-illus {
+    position: relative;
+    top: 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.border-note {
+    border: 1px solid #d7d7d7;
+    border-radius: 5px;
+    padding: 0;
+}
+
+.right-detail {
+    margin-right: 15px;
+    width: 49%;
+}
+
+h2.title-road-backlink,
+h3.title-road-backlink {
+    font-size: 14px;
+}
+
+.mb0 {
+    margin-bottom: 0!important;
+}
+
+.mt10 {
+    margin-top: 10px!important;
+}
+
+.title-road-backlink {
+    display: inline-block;
+    border-bottom: 1px #d7d7d7 solid;
+    padding: 10px 15px;
+    position: relative;
+    color: #333;
+    background: #f8f8f8;
+    margin: 0!important;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    font-weight: 700;
+}
+
+.list-detail-route {
+    padding: 0;
+    list-style: none;
+    margin-top: 10px;
+}
+
+.list-detail-route li {
+    border-bottom: 1px solid #d7d7d7;
+    display: inline-flex;
+    width: 96%;
+    margin-top: 5px;
+}
