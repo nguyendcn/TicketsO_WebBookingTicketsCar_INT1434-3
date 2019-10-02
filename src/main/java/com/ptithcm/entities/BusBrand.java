@@ -5,8 +5,8 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "CoachBrands")
-public class CoachBrand {
+@Table(name = "BusBrands")
+public class BusBrand {
 
 	@Id
 	@Column(name = "id")
@@ -15,32 +15,41 @@ public class CoachBrand {
 	private String name;
 	private String madeBy;
 	
-	@OneToMany(mappedBy="coachBrand")
-	private Set<Coach> coaches;
-	
+	@OneToMany(mappedBy="busBrand")
+	private Set<Bus> buses;
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getMadeBy() {
 		return madeBy;
 	}
+
 	public void setMadeBy(String madeBy) {
 		this.madeBy = madeBy;
 	}
-	public Set<Coach> getCoaches() {
-		return coaches;
+
+	public Set<Bus> getBuses() {
+		return buses;
 	}
-	public void setCoaches(Set<Coach> coaches) {
-		this.coaches = coaches;
+
+	public void setBuses(Set<Bus> buses) {
+		this.buses = buses;
 	}
+	
+
 	
 }

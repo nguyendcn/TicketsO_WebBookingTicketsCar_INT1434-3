@@ -7,39 +7,39 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ptithcm.entities.CoachType;
+import com.ptithcm.entities.BusType;
 
 @Repository()
 @Transactional()
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class CoachTypeDAOImp implements DAOBase<CoachType>{
+public class CoachTypeDAOImp implements DAOBase<BusType>{
 
 	@Override
-	public List<CoachType> findAll() {
+	public List<BusType> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public CoachType findById(int id) {
+	public BusType findById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void save(CoachType entity) {
+	public void save(BusType entity) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void update(CoachType entity) {
+	public void update(BusType entity) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void delete(CoachType entity) {
+	public void delete(BusType entity) {
 		// TODO Auto-generated method stub
 		
 	}

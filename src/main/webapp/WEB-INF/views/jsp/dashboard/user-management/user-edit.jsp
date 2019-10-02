@@ -239,13 +239,13 @@
                         <div class="ibox float-e-margins">
                             <div class="ibox-content">
 
-                                <form action="http://trials.vevs.website/nguyenne/index.php?controller=pjCmsUsers&amp;action=pjActionUpdate" method="post" id="frmUpdateUser" class="form-horizontal" novalidate="novalidate">
-                                    <input type="hidden" name="user_update" value="1">
-                                    <input type="hidden" name="id" value="1">
+                                <form action="/TicketsO/dashboard/users/updateUser" method="post" id="frmUpdateUser" class="form-horizontal" novalidate="novalidate">
+                                    <input type="hidden" name="user_update" value="${user.id}">
+                                    <input type="hidden" name="id" value="${user.id}">
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label" for="role_id">Role</label>
                                         <div class="col-sm-6 col-md-7">
-                                            <p class="form-control-static">Super User</p> <input type="hidden" name="role_id" value="1">
+                                            <p class="form-control-static">${user.getRole().getName()}</p>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -253,7 +253,7 @@
                                         <div class="col-sm-6 col-md-7">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-at"></i></span>
-                                                <input type="text" name="email" id="email" class="form-control required email" value="superntseal@gmail.com" maxlength="255" aria-required="true">
+                                                <input type="text" name="email" id="email" class="form-control required email" value="${user.email}" maxlength="255" aria-required="true">
                                             </div>
                                         </div>
                                     </div>
@@ -267,15 +267,15 @@
                                         </div>
                                         <div class="col-xs-4 col-sm-2 col-md-2">
                                             <button type="button" class="btn btn-primary btn-outline btn-block btn-generate">
-                                    <i class="fa fa-refresh visible-xs-inline-block"></i>
-                                    <span class="hidden-xs">Generate</span>
-                                </button>
+                                                <i class="fa fa-refresh visible-xs-inline-block"></i>
+                                                <span class="hidden-xs">Generate</span>
+                                            </button>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-2 col-md-2 control-label" for="name">Name</label>
                                         <div class="col-sm-6 col-md-7">
-                                            <input type="text" name="name" id="name" value="nguyen" class="form-control required" maxlength="255" aria-required="true">
+                                            <input type="text" name="name" id="name" value="${user.getName()}" class="form-control required" maxlength="255" aria-required="true">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -288,37 +288,9 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label" for="receive_notifications">Receive admin email notifications</label>
-                                        <div class="col-sm-6 col-md-7">
-                                            <div class="switch onoffswitch-data pull-left">
-                                                <div class="onoffswitch">
-                                                    <input type="checkbox" class="onoffswitch-checkbox" id="receive_notifications" name="receive_notifications" checked="">
-                                                    <label class="onoffswitch-label" for="receive_notifications">
-                                            <span class="onoffswitch-inner" data-on="Yes" data-off="No"></span>
-                                            <span class="onoffswitch-switch"></span>
-                                        </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label" for="receive_sms_notifications">Receive admin SMS notifications</label>
-                                        <div class="col-sm-6 col-md-7">
-                                            <div class="switch onoffswitch-data pull-left">
-                                                <div class="onoffswitch">
-                                                    <input type="checkbox" class="onoffswitch-checkbox" id="receive_sms_notifications" name="receive_sms_notifications" checked="">
-                                                    <label class="onoffswitch-label" for="receive_sms_notifications">
-                                            <span class="onoffswitch-inner" data-on="Yes" data-off="No"></span>
-                                            <span class="onoffswitch-switch"></span>
-                                        </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
                                         <label class="col-sm-2 control-label">Status</label>
                                         <div class="col-sm-6 col-md-7">
-                                            <p class="form-control-static">Active</p>
+                                            <p class="form-control-static">${user.getStatus().getName()}</p>
                                             <input type="hidden" name="status" value="T">
                                         </div>
                                     </div>
@@ -326,26 +298,20 @@
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Registration Date/Time</label>
                                         <div class="col-sm-6 col-md-7">
-                                            <p class="form-control-static">19/09/2019, 11:05 am</p>
+                                            <p class="form-control-static">${user.registerDate}</p>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Last Login</label>
                                         <div class="col-sm-6 col-md-7">
-                                            <p class="form-control-static">21/09/2019, 9:52 am</p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label">IP Address</label>
-                                        <div class="col-sm-6 col-md-7">
-                                            <p class="form-control-static">217.145.84.22</p>
+                                            <p class="form-control-static">${user.lastTimeLogin}</p>
                                         </div>
                                     </div>
                                     <div class="hr-line-dashed"></div>
                                     <div class="form-group">
                                         <div class="col-sm-6 col-md-7 col-sm-offset-2">
-                                            <button type="submit" class="btn btn-primary btn-lg">Save</button>
-                                            <a class="btn btn-white btn-lg pull-right" href="http://trials.vevs.website/nguyenne/index.php?controller=pjCmsUsers&amp;action=pjActionIndex">Cancel</a>
+                                            <button action="submit" class="btn btn-primary btn-lg">Save</button>
+                                            <a class="btn btn-white btn-lg pull-right" href="/TicketO/dashboard/users/show">Cancel</a>
                                         </div>
                                     </div>
                                 </form>

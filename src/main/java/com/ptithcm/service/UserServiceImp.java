@@ -45,6 +45,10 @@ public class UserServiceImp implements ServicesBase<User> {
 
 	}
 	
+	public int add(User user) {
+		return userDAO.add(user);
+	}
+	
 	public int deleteUserById(int id) {
 		return userDAO.deleteUserById(id);
 	}

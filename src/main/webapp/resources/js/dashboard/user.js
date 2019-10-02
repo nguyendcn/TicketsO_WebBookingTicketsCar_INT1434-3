@@ -37,38 +37,41 @@
             var $this = $(this);
             $tr = $this.closest("tr");
 
+
             swal({
-                title: "Delete confirmation",
-                text: "Are you sure you want to delete selected record?",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Delete",
-                cancelButtonText: "Cancle",
-                closeOnConfirm: false,
-                showLoaderOnConfirm: true
-            }, function() {
-                $.post($this.attr("href")).done(function(data) {
-                    if (!(data && data.status)) {
-                        console.log($this.attr("href"));
-                        return;
-                    }
-                    switch (data.status) {
-                        case "OK":
-                            $tr.css("backgroundColor", "#FFB4B4").fadeOut("slow", function() {
-                                self._loadDatagrid.call(self, target, inst.settings.dataUrl, inst.settings.content.column, inst.settings.content.direction, inst.settings.content.page, inst.settings.content.rowCount);
-                                swal.close();
-                            });
-                            break;
-                        case "ERR":
-                            if (data.text) {
-                                swal("Error!", data.text, "error");
-                            } else {
-                                swal.close();
+                    title: "DELETE",
+                    text: "Once deleted, you will not be able to recover this record!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                    closeModal: true
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $.get($this.attr("value")).done(function(data) {
+                            console.log(data);
+                            switch (data) {
+                                case "OK":
+                                    swal("Poof! Your record has been deleted!", {
+                                            icon: "success",
+                                        })
+                                        .then((value) => {
+                                            $(location).attr('href', '/TicketsO/dashboard/users/show');
+                                        });
+                                    break;
+                                case "ERR":
+                                    if (data.text) {
+                                        swal("Error!", data.text, "error");
+                                    } else {
+                                        swal.close();
+                                    }
                             }
+                        });
+
+                    } else {
+                        swal("Your imaginary file is safe!", { icon: "success" });
                     }
                 });
-            });
         });
     });
 

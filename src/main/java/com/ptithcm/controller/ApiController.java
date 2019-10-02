@@ -60,9 +60,9 @@ public class ApiController {
 		int affectRows = userServiceImp.deleteUserById(idRecord);
 		
 		if(affectRows > 0) {
-			return ("Delete userId =" + idRecord + " has success.");
+			return ("OK");
 		}else{
-			return "Does not user had deleted.";
+			return "ERR";
 		}
 	}
 	

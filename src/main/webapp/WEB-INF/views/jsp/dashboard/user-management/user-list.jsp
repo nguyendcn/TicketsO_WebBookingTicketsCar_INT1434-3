@@ -10,6 +10,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <title>Website Administration</title>
+
             <link rel="shortcut icon" type="image/x-icon" href="http://trials.vevs.website/nguyenne/favicon.ico">
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/core/css/bootstrap.min.css">
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/fonts/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,7 +18,7 @@
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/core/css/ladda-themeless.min.css">
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/core/icheck/1.0.2/custom.css">
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/core/css/jquery.gritter.css">
-            <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/dashboard/sweetalert.css">
+
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/core/css/jquery.bootstrap-touchspin.min.css">
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/dashboard/animate.css">
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/core/css/morris.min.css">
@@ -237,7 +238,7 @@
 
                                         <div class="row m-b-md">
                                             <div class="col-sm-4 mobile-text-center">
-                                                <a href="${pageContext.request.contextPath}/dashboard/users/add" class="btn btn-primary"><i class="fa fa-plus m-r-xs"></i> Add user</a> </div>
+                                                <a href="${pageContext.request.contextPath}/dashboard/users/create" class="btn btn-primary"><i class="fa fa-plus m-r-xs"></i> Add user</a> </div>
                                             <div class="col-md-4 col-sm-8">
                                                 <form action="http://trials.vevs.website/nguyenne/index.php?controller=pjCmsUsers&amp;action=pjActionIndex" method="get" class="form-horizontal frm-filter">
                                                     <div class="input-group">
@@ -301,10 +302,10 @@
                                                                     </span><input type="hidden" data-name="status" class="pj-selector-editable" value="F"></td>
                                                                 <td>
                                                                     <div class="m-t-xs text-right">
-                                                                        <a href="/TicketsO/api/delRecordById?idRecord=${user.id}" class="btn btn-primary btn-outline btn-sm m-l-xs pj-table-icon-edit">
+                                                                        <a href="/TicketsO/dashboard/users/editRecordById?idRecord=${user.id}" class="btn btn-primary btn-outline btn-sm m-l-xs pj-table-icon-edit">
                                                                             <i class="fa fa-pencil"></i>
                                                                         </a>
-                                                                        <a href="/TicketsO/api/delRecordById?idRecord=${user.id}" class="btn btn-danger btn-outline btn-sm m-l-xs pj-table-icon-delete">
+                                                                        <a value="/TicketsO/api/delRecordById?idRecord=${user.id}" class="btn btn-danger btn-outline btn-sm m-l-xs pj-table-icon-delete">
                                                                             <i class="fa fa-trash"></i>
                                                                         </a>
                                                                     </div>
@@ -462,7 +463,6 @@
             <script src="${pageContext.request.contextPath}/resources/core/js/spin.min.js"></script>
             <script src="${pageContext.request.contextPath}/resources/core/js/ladda.min.js"></script>
             <script src="${pageContext.request.contextPath}/resources/core/js/ladda.jquery.min.js"></script>
-            <script src="${pageContext.request.contextPath}/resources/core/js/sweetalert.min.js"></script>
             <script src="${pageContext.request.contextPath}/resources/core/js/pace.min.js"></script>
             <script src="${pageContext.request.contextPath}/resources/core/js/jquery.bootstrap-touchspin.min.js"></script>
             <script src="${pageContext.request.contextPath}/resources/core/js/raphael.min.js"></script>
@@ -474,7 +474,8 @@
             <script src="${pageContext.request.contextPath}/resources/js/dashboard/jquery.datagrid.js"></script>
             <script src="${pageContext.request.contextPath}/resources/core/icheck/1.0.2/icheck.min.js"></script>
             <script src="${pageContext.request.contextPath}/resources/js/dashboard/user.js"></script>
-
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/dashboard/sweetalert.css">
             <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
 
             <script>

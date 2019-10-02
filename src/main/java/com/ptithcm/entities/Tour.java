@@ -23,8 +23,8 @@ public class Tour {
 	
 	@OneToOne(optional=false)
     @JoinColumn(
-    	name="coach_id", unique=true, nullable=false, updatable=false)
-	private Coach coach;
+    	name="bus_id", unique=true, nullable=false, updatable=false)
+	private Bus bus;
 
 	@OneToMany(mappedBy="tour")
 	private Set<Ticket> tickets;
@@ -53,12 +53,12 @@ public class Tour {
 		this.route = route;
 	}
 
-	public Coach getCoach() {
-		return coach;
+	public Bus getBus() {
+		return bus;
 	}
 
-	public void setCoach(Coach coach) {
-		this.coach = coach;
+	public void setBus(Bus coach) {
+		this.bus = coach;
 	}
 
 	public Set<Ticket> getTickets() {

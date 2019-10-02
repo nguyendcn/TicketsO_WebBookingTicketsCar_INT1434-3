@@ -46,13 +46,11 @@ public class Role {
 		this.description = description;
 	}
 
-	public Set<User> getUsers() {
+	public Set<User> getUser() {
 		return users;
 	}
 
-	public void setUsers(Set<User> users) {
-		this.users = users;
-	}
-	
-	
+	public void setUser(Set<User> user) {
+		this.users = user;
+	}	
 }

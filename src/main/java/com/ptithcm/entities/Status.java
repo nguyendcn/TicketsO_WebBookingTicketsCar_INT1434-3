@@ -18,6 +18,9 @@ public class Status {
 	@OneToMany(mappedBy="status")
 	private Set<TransactionHistory> transactionHistories;
 
+	@OneToMany(mappedBy="status")
+	private Set<User> users;
+	
 	public int getId() {
 		return id;
 	}
@@ -49,4 +52,13 @@ public class Status {
 	public void setTransactionHistories(Set<TransactionHistory> transactionHistories) {
 		this.transactionHistories = transactionHistories;
 	}
+
+	public Set<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
+	
 }

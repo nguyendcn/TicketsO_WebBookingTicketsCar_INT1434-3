@@ -3,8 +3,8 @@ package com.ptithcm.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Coaches")
-public class Coach {
+@Table(name = "Buses")
+public class Bus {
 	
 	@Id
 	@Column(name = "id")
@@ -15,18 +15,18 @@ public class Coach {
 	private String images;
 	
 	@ManyToOne
-	@JoinColumn(name="coachType_id")
-	private CoachType coachType;
+	@JoinColumn(name="busType_id")
+	private BusType busType;
 	
 	@ManyToOne
-	@JoinColumn(name="coachBrand_id")
-	private CoachBrand coachBrand;
+	@JoinColumn(name="busBrand_id")
+	private BusBrand busBrand;
 	
 	@ManyToOne
 	@JoinColumn(name="transportionBusiness_id")
 	private TransportationBusiness transportationBusiness;
 	
-	@OneToOne(mappedBy = "coach")
+	@OneToOne(mappedBy = "bus")
 	private Tour tour;
 
 	public int getId() {
@@ -45,6 +45,14 @@ public class Coach {
 		this.name = name;
 	}
 
+	public String getLicensePlate() {
+		return licensePlate;
+	}
+
+	public void setLicensePlate(String licensePlate) {
+		this.licensePlate = licensePlate;
+	}
+
 	public String getImages() {
 		return images;
 	}
@@ -53,28 +61,20 @@ public class Coach {
 		this.images = images;
 	}
 
-	public CoachType getCoachType() {
-		return coachType;
+	public BusType getBusType() {
+		return busType;
 	}
 
-	public void setCoachType(CoachType coachType) {
-		this.coachType = coachType;
+	public void setBusType(BusType busType) {
+		this.busType = busType;
 	}
 
-	public CoachBrand getCoachBrand() {
-		return coachBrand;
+	public BusBrand getBusBrand() {
+		return busBrand;
 	}
 
-	public void setCoachBrand(CoachBrand coachBrand) {
-		this.coachBrand = coachBrand;
-	}
-	
-	public String getLicensePlate() {
-		return licensePlate;
-	}
-
-	public void setLicensePlate(String licensePlate) {
-		this.licensePlate = licensePlate;
+	public void setBusBrand(BusBrand busBrand) {
+		this.busBrand = busBrand;
 	}
 
 	public TransportationBusiness getTransportationBusiness() {
@@ -92,7 +92,7 @@ public class Coach {
 	public void setTour(Tour tour) {
 		this.tour = tour;
 	}
-	
+
 	
 	
 }

@@ -1,6 +1,7 @@
 package com.ptithcm.entities;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -32,54 +34,24 @@ public class User {
 	@Temporal(TemporalType.DATE)
 	private Date registerDate;
 	
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType	.DATE)
 	private Date lastTimeLogin;
 	
 	@Column(columnDefinition ="nvarchar(50)", unique = false, nullable = false)
 	private String email;
-	
-	private String ipAddress;
 
 	private String profile_id;
 	
 	private String avatar;
 	
-	@OneToOne()
-	@JoinColumn(name="status_id")
-	private Status status;
-	
 	@ManyToOne
-	@JoinColumn(name="role_id")
+	@JoinColumn(name = "role_id")
 	private Role role;
 	
-	
-	public User(int id, String name, String password, Date registerDate, Date lastTimeLogin, String email,
-			String ipAddress, String profile_id, String avatar, Status status, Role role) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.password = password;
-		this.registerDate = registerDate;
-		this.lastTimeLogin = lastTimeLogin;
-		this.email = email;
-		this.ipAddress = ipAddress;
-		this.profile_id = profile_id;
-		this.avatar = avatar;
-		this.status = status;
-		this.role = role;
-	}
+	@ManyToOne
+	@JoinColumn(name = "status_id")
+	private Status status;
 
-	public User() {
-		this.id = 99999999;
-		this.name = this.password = this.email  = this.ipAddress = this.profile_id = this.avatar = "default";
-	}
-	
-	public User(int id, String name, String password) {
-		this.id = id;
-		this.name = name;
-		this.password = password;
-	}
-	
 	public int getId() {
 		return id;
 	}
@@ -103,8 +75,7 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
+
 	public Date getRegisterDate() {
 		return registerDate;
 	}
@@ -129,24 +100,6 @@ public class User {
 		this.email = email;
 	}
 
-	
-	public String getAvatar() {
-		return avatar;
-	}
-
-	public void setAvatar(String avatar) {
-		this.avatar = avatar;
-	}
-
-	public String getIpAddress() {
-		return ipAddress;
-	}
-
-	public void setIpAddress(String ipAddress) {
-		this.ipAddress = ipAddress;
-	}
-
-
 	public String getProfile_id() {
 		return profile_id;
 	}
@@ -155,14 +108,13 @@ public class User {
 		this.profile_id = profile_id;
 	}
 
-	public Status getStatus() {
-		return status;
+	public String getAvatar() {
+		return avatar;
 	}
 
-	public void setStatus(Status status) {
-		this.status = status;
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
 	}
-
 	
 	public Role getRole() {
 		return role;
@@ -172,10 +124,42 @@ public class User {
 		this.role = role;
 	}
 
+	
+	
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	public User(int id, String name, String password, Date registerDate, Date lastTimeLogin, String email,
+			String profile_id, String avatar, Role role, Status status) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.password = password;
+		this.registerDate = registerDate;
+		this.lastTimeLogin = lastTimeLogin;
+		this.email = email;
+		this.profile_id = profile_id;
+		this.avatar = avatar;
+		this.role = role;
+		this.status = status;
+	}
+
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", password=" + password + ", registerDate=" + registerDate
-				+ ", lastTimeLogin=" + lastTimeLogin + ", email=" + email + ", ipAddress=" + ipAddress + ", profile_id="
-				+ profile_id + ", avatar=" + avatar + ", status=" + status + ", role=" + role + "]";
+				+ ", lastTimeLogin=" + lastTimeLogin + ", email=" + email + ", profile_id=" + profile_id + ", avatar="
+				+ avatar + ", role=" + role + ", status=" + status + "]";
 	}
+
+	
 }
