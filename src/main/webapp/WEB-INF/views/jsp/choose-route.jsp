@@ -160,7 +160,153 @@
 
             <!--Content Search Area-->
             <div class="content-search-area">
+                <section class="searchResults">
+                    <div id="main">
+                        <div id="replaceDiv">
+                            <div class="searchResults">
+                                <ul class="result-list" style="margin: 0px;">
+                                    <li class="result-item col-12 col-md-12 col-xs-12">
+                                        <div class="container-route">
+                                            <div style="display: none" id="04102019-00601410"></div>
+                                            <div class="from-time-value" style="display:none" data-value="360"></div>
+                                            <div class="from-stop-value" style="display:none" data-value="Bến xe Miền Đông - quầy vé 51"></div>
+                                            <div class="to-stop-value" style="display: none" data-value="Bến xe Giáp Bát"></div>
+                                            <div class="company-value" style="display:none" data-value="Tiến Tiến"></div>
+                                            <div class="hidden-xs">
+                                                <div class="col-2 col-md-2 col-sm-3 col-xs-2">
+                                                    <div class="row">
+                                                        <div class="pull-left comp-name-container">
+                                                            <h6 class="mt0 mb10 comp-name-title  text-gray3" title="Tiến Tiến">Tiến Tiến</h6>
+                                                            <div class="col-lg-12 service-plus-in hidden-xs">
+                                                                <img src="https://storage.googleapis.com/fe-production/images/wifi.svg">
+                                                                <img src="https://storage.googleapis.com/fe-production/images/Water.svg">
+                                                            </div>
+                                                            <ul class="busInfo hidden-sm hidden-xs hinh-anh">
+                                                                <li style="width:65px;">
+                                                                    <a class="ml5 ticket-detail-tab-link text-route-link hover-orange-border hover-blue-text" href="#" data-tab="hinhanh" data-text="Hình ảnh">
+                                    Hình ảnh
+                                </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
 
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-4 col-md-5 col-lg-4 col-sm-3 col-xs-4 hidden-xs detail-route">
+                                                    <div class="col-12 ml10" style="text-align:center;">
+                                                        <div class="col-5 col-md-5 col-sm-12 text-left-from">
+                                                            <h6 class="span-from-time mt0 mb5" data-busticketstatus="2" data-workingtime="True" data-istetticket="0" data-tripid="2741969" data-pickupdate="06:00 04-10-2019">
+                                                                06:00
+                                                            </h6>
+                                                        </div>
+                                                        <div class="col-2 col-md-2 col-sm-12 text-left" style="padding:0;">
+                                                            <i class="text-gray3 left-arrow" style="display: inline-block;margin-top:-10px;line-height:15px;font-size:12px;text-align:center;">
+                            32h10'
+                            <br>
+                            <img style="width:45px;height:10px;" src="https://storage.googleapis.com/fe-production/images/from-to2.png">
+                            <br>
+                            dự kiến
+                        </i>
+                                                        </div>
+                                                        <div class="col-5 col-md-5 col-sm-12 text-left-to">
+                                                            <h6 class="span-to-time-mobi mt0 mb5 text-gray3" data-busticketstatus="2" data-workingtime="True" data-istetticket="0">
+                                                                14:10
+                                                            </h6>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                        <div class="pull-left hidden-sm" style="width:100%;">
+                                                            <div class="col-5 col-md-5 col-sm-5 text-left">
+                                                                <a class="depart-station ticket-detail-tab-link text-route-link hover-orange-border hover-blue-text" style="color:#333" data-appended="0" data-trip-id="2741969" data-time="06:00" data-tripcode="v2CKitCRCRBhoCMDYiAjAwMNGtpwE6CjA0LTEwLTIwMTlIHVAY" data-id="153256"
+                                                                    data-value="Bến xe Miền Đông - quầy vé 51" href="#" onclick="return false;" data-tab="banggia" data-text="Bến xe..." data-toggle="tooltip" title="292 Đinh Bộ Lĩnh - Bình Thạnh - Hồ Chí Minh">
+                                Bến xe Miền Đông...
+                            </a>
+                                                            </div>
+                                                            <div class="col-2 col-md-2 col-sm-2 hidden-xs hidden-sm payoo-mt2 total-time-text"></div>
+                                                            <div class="col-5 col-md-5 col-sm-5 payoo-mt2 text-left">
+                                                                <a class="destination-station ticket-detail-tab-link text-route-link hover-orange-border hover-blue-text" style="color:#333" data-appended="0" data-trip-id="2741969" data-tripcode="v2CKitCRCRBhoCMDYiAjAwMNGtpwE6CjA0LTEwLTIwMTlIHVAY" data-time="06:00"
+                                                                    data-id="785" data-value="Bến xe Giáp Bát" href="#" onclick="return false;" data-tab="banggia" data-text="Bến xe..." data-toggle="tooltip" title="Đường Giải Phóng, Giáp Bát - Hoàng Mai - Hà Nội">
+                                Bến xe Giáp Bát
+                            </a>
+                                                            </div>
+                                                        </div>
+                                                        <ul class="busInfo hidden-sm mt15">
+                                                            <li class="col-2 col-md-2 col-sm-2"></li>
+                                                            <li class="col-5 col-md-5 col-sm-5 text-left lichtrinh link-lich-trinh">
+                                                                <a class="ticket-detail-tab-link text-route-link hover-orange-border hover-blue-text" data-tab="banggia" href="#" data-text="Lịch trình">
+                                    Lịch trình
+                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-2 col-md-2 col-sm-3 col-xs-2">
+                                                    <div class="vehicle-type-p mb3 text-left text-gray3" data-value="39" style="margin-bottom:3px !important">
+                                                        Giường nằm 44 chỗ
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="service-call seats-text text-left mt15" style="">
+                                                        <span class="v2CKitCRCRBhoCMDYiAjAwMNGtpwE6CjA0LTEwLTIwMTlIHVAY">20</span> Ghế trống
+                                                    </div>
+
+                                                    <ul class="busInfo chinh-sach-huy text-left hidden-sm mt15">
+                                                        <li>
+                                                            <a class="ml5 ticket-detail-tab-link text-route-link hover-orange-border hover-blue-text link-chinh-sach-huy" data-tab="chinhsachhuyve" href="#" data-text="Chính sách hủy vé" style="margin-left:0 !important;margin-top:0px !important">
+                            Chính sách hủy vé
+                        </a>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+
+                                                <div class="col-md-2 col-xs-2 text-left hidden-md hidden-sm">
+                                                    <div style="float:left;margin-bottom:3px !important">
+                                                        <div class="ratings">
+                                                            <div class="empty-stars" style="font-size: 14pt;"></div>
+                                                            <div class="full-stars" style="width:81.5%;font-size: 14pt;"></div>
+                                                        </div>
+
+
+                                                        <span style="display:none;" class="bus-sort-rating" data-value="3.6"></span>
+                                                    </div>
+                                                    <div class="pull-left mt15" style="width:100%;">
+                                                        <span class="totalComments" style="display:none">35</span>
+                                                        <a class="rating-link ticket-detail-tab-link text-route-link " href="/vi-VN/xe-tien-tien" data-tab="danhgia">
+                                                            <span class="BusQualityRating" style="background:#1867BC">4,2/5</span> 5 <span></span> đánh giá </a>
+                                                    </div>
+                                                </div>
+
+                                                <div class="text-right pr0 col-md-3 col-sm-3 col-xs-2 col-lg-2">
+                                                    <meta content="700.000">
+                                                    <h6 data-value="700000" class="mt0 price 14">
+                                                        700.000 <small style="vertical-align: top;" class="unit-price-small">đ</small>
+                                                    </h6>
+
+
+
+                                                    <p style="margin:0;">
+
+                                                        <a id="a-04102019-00601410" data-tripcode="v2CKitCRCRBhoCMDYiAjAwMNGtpwE6CjA0LTEwLTIwMTlIHVAY" class="ticket-ac-btn btn-vxr-lg btn pull-right w100 hasSeat closed a-v2CKitCRCRBhoCMDYiAjAwMNGtpwE6CjA0LTEwLTIwMTlIHVAY  online-button" href="#04102019-00601410"
+                                                            title="Nhấp để đặt vé" onclick="ga('send', 'event', 'Đặt vé', 'click','Đặt vé tại Tuyến đường Sài Gòn đi Hà Nội nhà xe Tiến Tiến')">Chọn chỗ</a>
+                                                        <a style="display: none;" title="Nhấp để đóng lại" href="javascript:;" class="ticket-ac-btn btn btn-lg btn-vxr-gray-lg w100 open online-button">Đóng lại</a>
+
+
+                                                    </p>
+                                                </div>
+
+                                                <div class="col-12 col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                                    <i>*Thuộc chuyến 06:00 04-10-2019 Sài Gòn - Thanh Hóa - Hà Nội</i>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
             <!--End Content Search Area-->
 
@@ -170,126 +316,119 @@
                     <div class="clearfix route-illus row text-center">
                         <div class="col-md-12">
                             <div class="container">
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-6 border-note right-detail">
-                                        <h2 class="mt10 text-center title-road-backlink mb0">
+                                <div class="row" style="flex-wrap: unset;">
+                                    <div class=" col-md-6 col-sm-6 border-note right-detail ">
+                                        <h2 class="mt10 text-center title-road-backlink mb0 ">
                                             Thông tin tuyến đường Hồ Chí Minh đi Hà Nội
                                         </h2>
-                                        <ul class="list-detail-route">
+                                        <ul class="list-detail-route ">
                                             <li>
-                                                <p class="col-md-6 col-sm-6 text-left">Chiều dài tuyến đường :</p>
-                                                <p class="col-md-6 text-right"><b>1394 km</b> </p>
+                                                <p class="col-md-6 col-sm-6 text-left ">Chiều dài tuyến đường :</p>
+                                                <p class="col-md-6 text-right "><b>1394 km</b> </p>
                                             </li>
                                             <li>
-                                                <p class="col-md-6 col-sm-6 text-left">Thời gian di chuyển :</p>
-                                                <p class="col-md-6 text-right"><b>32 giờ</b> </p>
+                                                <p class="col-md-6 col-sm-6 text-left ">Thời gian di chuyển :</p>
+                                                <p class="col-md-6 text-right "><b>32 giờ</b> </p>
                                             </li>
                                             <li>
-                                                <p class="col-md-6 col-sm-6 text-left">Giá vé trung bình :</p>
-                                                <p class="col-md-6 text-right"><b>780.000 VNĐ</b> </p>
+                                                <p class="col-md-6 col-sm-6 text-left ">Giá vé trung bình :</p>
+                                                <p class="col-md-6 text-right "><b>780.000 VNĐ</b> </p>
                                             </li>
                                             <li>
-                                                <p class="col-md-6 col-sm-6 text-left">Số lượng chuyến xe :</p>
-                                                <p class="col-md-6 text-right"><b>12 chuyến</b> </p>
+                                                <p class="col-md-6 col-sm-6 text-left ">Số lượng chuyến xe :</p>
+                                                <p class="col-md-6 text-right "><b>12 chuyến</b> </p>
                                             </li>
-                                            <li style="border:0">
-                                                <p class="col-md-6 col-sm-6 text-left">Số lượng nhà xe :</p>
-                                                <p class="col-md-6 text-right"><b>15 nhà xe</b> </p>
+                                            <li style="border:0 ">
+                                                <p class="col-md-6 col-sm-6 text-left ">Số lượng nhà xe :</p>
+                                                <p class="col-md-6 text-right "><b>15 nhà xe</b> </p>
                                             </li>
                                         </ul>
-                                        <div class="price-road-backlink border-line-detail"></div>
+                                        <div class="price-road-backlink border-line-detail "></div>
                                     </div>
-                                    <div class="col-md-6 col-sm-6 border-note right-detail" style="margin-right: 0; float: right;">
-                                        <h3 class="mt10 text-center title-road-backlink mb0">
+                                    <div class="col-md-6 col-sm-6 border-note right-detail " style="margin-right: 0; float: right; ">
+                                        <h3 class="mt10 text-center title-road-backlink mb0 ">
                                             <span>Đặt vé xe khách, xe limousine các hãng xe từ Hồ Chí Minh đến Hà Nội</span>
                                         </h3>
-                                        <table class="table seo-table">
+                                        <table class="table seo-table ">
                                             <thead>
                                                 <tr>
-                                                    <th height="45">NHÀ XE</th>
-                                                    <th height="45" class="text-center">GIÁ VÉ TRUNG BÌNH</th>
-                                                    <th height="45">GIỜ CHẠY</th>
+                                                    <th height="45 " class="text-left">NHÀ XE</th>
+                                                    <th height="45 " class="text-center ">GIÁ VÉ TRUNG BÌNH</th>
+                                                    <th height="45 " class="text-left">GIỜ CHẠY</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td height="30">
-                                                        <p class="text-left">Tiến Tiến</p>
+                                                    <td height="30 ">
+                                                        <p class="text-left ">Tiến Tiến</p>
                                                     </td>
-                                                    <td height="30">
-                                                        <p class="">700.000 <small style="vertical-align: top;" class="unit-price-small">đ</small></p>
+                                                    <td height="30 ">
+                                                        <p class=" ">700.000 <small style="vertical-align: top; " class="unit-price-small ">đ</small></p>
                                                     </td>
-                                                    <td height="30">
-                                                        <p class="text-left">06h00</p>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td height="30">
-                                                        <p class="text-left">Hoàng Long</p>
-                                                    </td>
-                                                    <td height="30">
-                                                        <p class="">720.000 <small style="vertical-align: top;" class="unit-price-small">đ</small></p>
-                                                    </td>
-                                                    <td height="30">
-                                                        <p class="text-left">07h00, 17h30, 20h30</p>
+                                                    <td height="30 ">
+                                                        <p class="text-left ">06h00</p>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td height="30">
-                                                        <p class="text-left">Mai Linh</p>
+                                                    <td height="30 ">
+                                                        <p class="text-left ">Hoàng Long</p>
                                                     </td>
-                                                    <td height="30">
-                                                        <p class="">775.000 <small style="vertical-align: top;" class="unit-price-small">đ</small></p>
+                                                    <td height="30 ">
+                                                        <p class=" ">720.000 <small style="vertical-align: top; " class="unit-price-small ">đ</small></p>
                                                     </td>
-                                                    <td height="30">
-                                                        <p class="text-left">09h00, 15h00</p>
+                                                    <td height="30 ">
+                                                        <p class="text-left ">07h00, 17h30, 20h30</p>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td height="30">
-                                                        <p class="text-left">Thu Trang</p>
+                                                    <td height="30 ">
+                                                        <p class="text-left ">Mai Linh</p>
                                                     </td>
-                                                    <td height="30">
-                                                        <p class="">700.000 <small style="vertical-align: top;" class="unit-price-small">đ</small></p>
+                                                    <td height="30 ">
+                                                        <p class=" ">775.000 <small style="vertical-align: top; " class="unit-price-small ">đ</small></p>
                                                     </td>
-                                                    <td height="30">
-                                                        <p class="text-left">13h00</p>
+                                                    <td height="30 ">
+                                                        <p class="text-left ">09h00, 15h00</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td height="30 ">
+                                                        <p class="text-left ">Thu Trang</p>
+                                                    </td>
+                                                    <td height="30 ">
+                                                        <p class=" ">700.000 <small style="vertical-align: top; " class="unit-price-small ">đ</small></p>
+                                                    </td>
+                                                    <td height="30 ">
+                                                        <p class="text-left ">13h00</p>
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <div class="price-road-backlink border-line-detail"></div>
+                                        <div class="price-road-backlink border-line-detail "></div>
 
                                     </div>
                                 </div>
-                                <div class="row" style="margin-top: 10px;">
-                                    <div class="col-md-12 col-sm-12 border-note" style="padding:10px;">
-                                        <p class="route-desc-footer pd-15-20" itemprop="description" style="text-align:justify">
-                                            Tuyến đường Hồ Chí Minh - Hà Nội dài khoảng 1394 . Trung bình mỗi ngày có khoảng 12 chuyến xe khách chạy tuyến đường này bắt đầu từ 06h00 đến 20h30 bởi 15 nhà xe : <a href="/vi-VN/xe-tien-tien">Xe Tiến Tiến</a>,
-                                            <a href="/vi-VN/xe-mai-linh">Xe Mai Linh</a>, <a href="/vi-VN/xe-hoang-long">Xe Hoàng Long</a>, <a href="/vi-VN/xe-hien-phuoc">Xe Hiền Phước</a>, <a href="/vi-VN/xe-tuan-duyen">Xe Tuấn Duyên</a>, <a href="/vi-VN/xe-thu-trang">Xe Thu Trang</a>,
-                                            <a href="/vi-VN/xe-ngoc-le">Xe Ngọc Lễ</a>, <a href="/vi-VN/xe-vinh-yen">Xe Vĩnh Yên</a>, <a href="/vi-VN/xe-a-ba">Xe A Ba</a>, <a href="/vi-VN/xe-thu-khuyen">Xe Thu Khuyên</a>, <a href="/vi-VN/xe-phuong-hoang">Xe Phượng Hoàng</a>,
-                                            <a href="/vi-VN/xe-anh-tuyen-ha-noi">Xe Anh Tuyên (Hà Nội)</a>, <a href="/vi-VN/xe-van-thong">Xe Văn Thông</a>, <a href="/vi-VN/xe-htx-xe-khach-trung-nam">Xe HTX xe khách Trung Nam</a>, <a href="/vi-VN/xe-tin-nghia">Xe Tín Nghĩa</a>;
-                                            Thời gian di chuyển trên chặng khoảng 32 giờ.
+                                <div class="row " style="margin-top: 10px; ">
+                                    <div class="col-md-12 col-sm-12 border-note " style="padding:10px; ">
 
-                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="bus-preloader">
-                        <div class="preloader_horizontal">
-                            <div class="animate_element">
-                                <div class="animate_bus"></div>
-                                <div class="smoke">
-                                    <div class="smoke_item smoke_item1"></div>
-                                    <div class="smoke_item smoke_item2"></div>
-                                    <div class="smoke_item smoke_item3"></div>
-                                    <div class="smoke_item smoke_item4"></div>
+                    <div class="bus-preloader ">
+                        <div class="preloader_horizontal ">
+                            <div class="animate_element ">
+                                <div class="animate_bus "></div>
+                                <div class="smoke ">
+                                    <div class="smoke_item smoke_item1 "></div>
+                                    <div class="smoke_item smoke_item2 "></div>
+                                    <div class="smoke_item smoke_item3 "></div>
+                                    <div class="smoke_item smoke_item4 "></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="road">
+                        <div class="road ">
                             <span>Lộ trình khoảng: 1394 km</span>
                         </div>
                     </div>
@@ -298,14 +437,14 @@
             <!--End Route Point Area-->
 
             <!-- Footer Area -->
-            <footer class="footer-area" style="background-color: black">
-                <div class="container">
-                    <div class="footer-content">
+            <footer class="footer-area " style="background-color: black ">
+                <div class="container ">
+                    <div class="footer-content ">
                         <h1>Hihi</h1>
                         <p>It has purpose oriented design and it is suitable for users with zero programming skills as well as advanced developers.</p>
 
-                        <div class="copyright">
-                            <span>This is my website. <a href="dcnguyen.ooo">DCN</a></span>
+                        <div class="copyright ">
+                            <span>This is my website. <a href="dcnguyen.ooo ">DCN</a></span>
                         </div>
                     </div>
                 </div>
@@ -313,15 +452,15 @@
             <!-- End Footer Area -->
 
             <!-- Jquery Min JS -->
-            <script src="${pageContext.request.contextPath}/resources/core/index-page/js/jquery.min.js"></script>
+            <script src="${pageContext.request.contextPath}/resources/core/index-page/js/jquery.min.js "></script>
             <!-- Owl Carousel Min JS -->
-            <script src="${pageContext.request.contextPath}/resources/core/index-page/js/owl.carousel.min.js"></script>
+            <script src="${pageContext.request.contextPath}/resources/core/index-page/js/owl.carousel.min.js "></script>
             <!-- Popper Min JS -->
-            <script src="${pageContext.request.contextPath}/resources/core/index-page/js/particles.min.js"></script>
+            <script src="${pageContext.request.contextPath}/resources/core/index-page/js/particles.min.js "></script>
             <!-- Bootstrap Min JS -->
-            <script src="${pageContext.request.contextPath}/resources/core/index-page/js/bootstrap.min.js"></script>
+            <script src="${pageContext.request.contextPath}/resources/core/index-page/js/bootstrap.min.js "></script>
             <!-- Main JS -->
-            <script src="${pageContext.request.contextPath}/resources/js/index.js"></script>
+            <script src="${pageContext.request.contextPath}/resources/js/index.js "></script>
         </body>
 
         </html>
