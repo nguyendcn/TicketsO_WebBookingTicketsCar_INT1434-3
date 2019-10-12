@@ -42,5 +42,4 @@ public class RouteDetail {
 	public void setTransportationBusiness(TransportationBusiness transportationBusiness) {
 		this.transportationBusiness = transportationBusiness;
 	}
-
 }
