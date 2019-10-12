@@ -19,10 +19,6 @@ public class Bus {
 	private BusType busType;
 	
 	@ManyToOne
-	@JoinColumn(name="busBrand_id")
-	private BusBrand busBrand;
-	
-	@ManyToOne
 	@JoinColumn(name="transportionBusiness_id")
 	private TransportationBusiness transportationBusiness;
 	
@@ -69,13 +65,6 @@ public class Bus {
 		this.busType = busType;
 	}
 
-	public BusBrand getBusBrand() {
-		return busBrand;
-	}
-
-	public void setBusBrand(BusBrand busBrand) {
-		this.busBrand = busBrand;
-	}
 
 	public TransportationBusiness getTransportationBusiness() {
 		return transportationBusiness;

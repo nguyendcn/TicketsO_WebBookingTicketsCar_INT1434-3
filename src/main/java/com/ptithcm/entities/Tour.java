@@ -14,10 +14,6 @@ public class Tour {
 	private int id;
 	
 	@ManyToOne
-	@JoinColumn(name="itinerary_id")
-	private Itinerary itinerary;
-	
-	@ManyToOne
 	@JoinColumn(name="route_id")
 	private Route route;
 	
@@ -37,13 +33,6 @@ public class Tour {
 		this.id = id;
 	}
 
-	public Itinerary getItinerary() {
-		return itinerary;
-	}
-
-	public void setItinerary(Itinerary itinerary) {
-		this.itinerary = itinerary;
-	}
 
 	public Route getRoute() {
 		return route;

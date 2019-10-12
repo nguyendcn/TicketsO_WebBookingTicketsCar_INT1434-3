@@ -22,9 +22,6 @@ public class Customer {
 	@OneToMany(mappedBy="customer")
 	private Set<Ticket> tickets;
 	
-	@OneToMany(mappedBy="customer")
-	private Set<TransactionHistory> transactionHistories;
-	
 	@ManyToOne
 	@JoinColumn(name="transBusiness_id")
 	private TransportationBusiness transportationBusiness;
@@ -91,14 +88,6 @@ public class Customer {
 
 	public void setTickets(Set<Ticket> tickets) {
 		this.tickets = tickets;
-	}
-
-	public Set<TransactionHistory> getTransactionHistories() {
-		return transactionHistories;
-	}
-
-	public void setTransactionHistories(Set<TransactionHistory> transactionHistories) {
-		this.transactionHistories = transactionHistories;
 	}
 
 	public TransportationBusiness getTransportationBusiness() {

@@ -24,9 +24,6 @@ public class TransportationBusiness {
 	private String hotline;
 	
 	@OneToMany(mappedBy="transportationBusiness")
-	private Set<TransBusinessBranch> transBusinessBranches;
-	
-	@OneToMany(mappedBy="transportationBusiness")
 	private Set<RouteDetail> routeDetails;
 	
 	@OneToMany(mappedBy="transportationBusiness")
@@ -61,12 +58,6 @@ public class TransportationBusiness {
 	}
 	public void setHotline(String hotline) {
 		this.hotline = hotline;
-	}
-	public Set<TransBusinessBranch> getTransBusinessBranches() {
-		return transBusinessBranches;
-	}
-	public void setTransBusinessBranches(Set<TransBusinessBranch> transBusinessBranches) {
-		this.transBusinessBranches = transBusinessBranches;
 	}
 	public Set<RouteDetail> getRouteDetails() {
 		return routeDetails;

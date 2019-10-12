@@ -14,9 +14,7 @@ public class Status {
 	private int id;
 	private String name;
 	private String description;
-	
-	@OneToMany(mappedBy="status")
-	private Set<TransactionHistory> transactionHistories;
+
 
 	@OneToMany(mappedBy="status")
 	private Set<User> users;
@@ -45,13 +43,6 @@ public class Status {
 		this.description = description;
 	}
 
-	public Set<TransactionHistory> getTransactionHistories() {
-		return transactionHistories;
-	}
-
-	public void setTransactionHistories(Set<TransactionHistory> transactionHistories) {
-		this.transactionHistories = transactionHistories;
-	}
 
 	public Set<User> getUsers() {
 		return users;

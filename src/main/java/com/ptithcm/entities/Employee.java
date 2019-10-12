@@ -36,10 +36,6 @@ public class Employee {
 	private String address;
 	private String numberPhone;
 	
-	@ManyToOne
-	@JoinColumn(name="department_id")
-	private Department department;
-	
 	@OneToMany(mappedBy="employee")
 	private Set<Ticket> tickets;
 	
@@ -111,14 +107,6 @@ public class Employee {
 		this.numberPhone = numberPhone;
 	}
 
-	public Department getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(Department department) {
-		this.department = department;
-	}
-	
 	 public Set<Ticket> getTickets() {
 		return tickets;
 	}
@@ -140,7 +128,6 @@ public class Employee {
 	        return String.format("{id:" + this.id + ", firstName:" + this.firstName +
 	        		", lastName" + this.lastName + ", gender:" + this.gender +
 	        		", dateOfBirth:" + this.dateOfBirth + ", identityCard:" + this.identityCard +
-	        		", address:" + this.address + ", numberPhone:" + this.numberPhone +
-	        		", department:" + this.department.toString()); 
+	        		", address:" + this.address + ", numberPhone:" + this.numberPhone + "}"); 
 	    } 
 }

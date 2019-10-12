@@ -31,10 +31,6 @@ public class Ticket {
 	@JoinColumn(name="tour_id")
 	private Tour tour;
 	
-	@OneToOne(mappedBy = "ticket")
-	private TransactionHistory transactionHistory;
-	
-	
 
 	public int getId() {
 		return id;
@@ -76,7 +72,6 @@ public class Ticket {
 		this.customer = customer;
 	}
 
-	
 
 	public Tour getTour() {
 		return tour;
@@ -86,13 +81,5 @@ public class Ticket {
 		this.tour = tour;
 	}
 
-	public TransactionHistory getTransactionHistory() {
-		return transactionHistory;
-	}
-
-	public void setTransactionHistory(TransactionHistory transactionHistory) {
-		this.transactionHistory = transactionHistory;
-	}
-	
 	
 }
