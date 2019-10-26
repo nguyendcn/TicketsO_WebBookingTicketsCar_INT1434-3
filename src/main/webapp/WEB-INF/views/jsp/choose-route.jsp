@@ -168,10 +168,6 @@
                                     <li class="result-item col-12 col-md-12 col-xs-12">
                                         <div class="container-route">
                                             <div style="display: none" id="04102019-00601410"></div>
-                                            <div class="from-time-value" style="display:none" data-value="360"></div>
-                                            <div class="from-stop-value" style="display:none" data-value="Bến xe Miền Đông - quầy vé 51"></div>
-                                            <div class="to-stop-value" style="display: none" data-value="Bến xe Giáp Bát"></div>
-                                            <div class="company-value" style="display:none" data-value="Tiến Tiến"></div>
                                             <div class="hidden-xs">
                                                 <div class="col-2 col-md-2 col-sm-3 col-xs-2">
                                                     <div class="row">
@@ -230,50 +226,16 @@
                             </a>
                                                             </div>
                                                         </div>
-                                                        <ul class="busInfo hidden-sm mt15">
-                                                            <li class="col-2 col-md-2 col-sm-2"></li>
-                                                            <li class="col-5 col-md-5 col-sm-5 text-left lichtrinh link-lich-trinh">
-                                                                <a class="ticket-detail-tab-link text-route-link hover-orange-border hover-blue-text" data-tab="banggia" href="#" data-text="Lịch trình">
-                                    Lịch trình
-                                </a>
-                                                            </li>
-                                                        </ul>
+
                                                     </div>
                                                 </div>
-
                                                 <div class="col-2 col-md-2 col-sm-3 col-xs-2">
                                                     <div class="vehicle-type-p mb3 text-left text-gray3" data-value="39" style="margin-bottom:3px !important">
                                                         Giường nằm 44 chỗ
                                                     </div>
                                                     <div class="clearfix"></div>
-                                                    <div class="service-call seats-text text-left mt15" style="">
-                                                        <span class="v2CKitCRCRBhoCMDYiAjAwMNGtpwE6CjA0LTEwLTIwMTlIHVAY">20</span> Ghế trống
-                                                    </div>
-
-                                                    <ul class="busInfo chinh-sach-huy text-left hidden-sm mt15">
-                                                        <li>
-                                                            <a class="ml5 ticket-detail-tab-link text-route-link hover-orange-border hover-blue-text link-chinh-sach-huy" data-tab="chinhsachhuyve" href="#" data-text="Chính sách hủy vé" style="margin-left:0 !important;margin-top:0px !important">
-                            Chính sách hủy vé
-                        </a>
-                                                        </li>
-
-                                                    </ul>
-                                                </div>
-
-                                                <div class="col-md-2 col-xs-2 text-left hidden-md hidden-sm">
-                                                    <div style="float:left;margin-bottom:3px !important">
-                                                        <div class="ratings">
-                                                            <div class="empty-stars" style="font-size: 14pt;"></div>
-                                                            <div class="full-stars" style="width:81.5%;font-size: 14pt;"></div>
-                                                        </div>
-
-
-                                                        <span style="display:none;" class="bus-sort-rating" data-value="3.6"></span>
-                                                    </div>
-                                                    <div class="pull-left mt15" style="width:100%;">
-                                                        <span class="totalComments" style="display:none">35</span>
-                                                        <a class="rating-link ticket-detail-tab-link text-route-link " href="/vi-VN/xe-tien-tien" data-tab="danhgia">
-                                                            <span class="BusQualityRating" style="background:#1867BC">4,2/5</span> 5 <span></span> đánh giá </a>
+                                                    <div class="service-call seats-text text-left mt15">
+                                                        <span class="">20</span> Ghế trống
                                                     </div>
                                                 </div>
 
@@ -282,16 +244,9 @@
                                                     <h6 data-value="700000" class="mt0 price 14">
                                                         700.000 <small style="vertical-align: top;" class="unit-price-small">đ</small>
                                                     </h6>
-
-
-
                                                     <p style="margin:0;">
-
-                                                        <a id="a-04102019-00601410" data-tripcode="v2CKitCRCRBhoCMDYiAjAwMNGtpwE6CjA0LTEwLTIwMTlIHVAY" class="ticket-ac-btn btn-vxr-lg btn pull-right w100 hasSeat closed a-v2CKitCRCRBhoCMDYiAjAwMNGtpwE6CjA0LTEwLTIwMTlIHVAY  online-button" href="#04102019-00601410"
-                                                            title="Nhấp để đặt vé" onclick="ga('send', 'event', 'Đặt vé', 'click','Đặt vé tại Tuyến đường Sài Gòn đi Hà Nội nhà xe Tiến Tiến')">Chọn chỗ</a>
+                                                        <a id="" class="ticket-ac-btn btn-vxr-lg btn pull-right w100 hasSeat closed online-button" href="#04102019-00601410" title="Nhấp để đặt vé" onclick="ga('send', 'event', 'Đặt vé', 'click','Đặt vé tại Tuyến đường Sài Gòn đi Hà Nội nhà xe Tiến Tiến')">Chọn chỗ</a>
                                                         <a style="display: none;" title="Nhấp để đóng lại" href="javascript:;" class="ticket-ac-btn btn btn-lg btn-vxr-gray-lg w100 open online-button">Đóng lại</a>
-
-
                                                     </p>
                                                 </div>
 

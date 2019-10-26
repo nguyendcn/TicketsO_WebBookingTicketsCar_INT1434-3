@@ -9,7 +9,6 @@ import javax.persistence.*;
 public class Customer {
 
 	@Id
-	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String firstName;
@@ -22,9 +21,6 @@ public class Customer {
 	@OneToMany(mappedBy="customer")
 	private Set<Ticket> tickets;
 	
-	@ManyToOne
-	@JoinColumn(name="transBusiness_id")
-	private TransportationBusiness transportationBusiness;
 
 	public int getId() {
 		return id;
@@ -89,14 +85,5 @@ public class Customer {
 	public void setTickets(Set<Ticket> tickets) {
 		this.tickets = tickets;
 	}
-
-	public TransportationBusiness getTransportationBusiness() {
-		return transportationBusiness;
-	}
-
-	public void setTransportationBusiness(TransportationBusiness transportationBusiness) {
-		this.transportationBusiness = transportationBusiness;
-	}
-	
 	
 }

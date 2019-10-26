@@ -1,5 +1,7 @@
 package com.ptithcm.entities;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,11 +9,9 @@ import javax.persistence.*;
 public class Bus {
 	
 	@Id
-	@Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
-	private String licensePlate;
+	private String license;
 	private String images;
 	
 	@ManyToOne
@@ -22,8 +22,8 @@ public class Bus {
 	@JoinColumn(name="transportionBusiness_id")
 	private TransportationBusiness transportationBusiness;
 	
-	@OneToOne(mappedBy = "bus")
-	private Tour tour;
+	@OneToMany(mappedBy="bus")
+	private Set<Tour> tours;
 
 	public int getId() {
 		return id;
@@ -39,14 +39,6 @@ public class Bus {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getLicensePlate() {
-		return licensePlate;
-	}
-
-	public void setLicensePlate(String licensePlate) {
-		this.licensePlate = licensePlate;
 	}
 
 	public String getImages() {
@@ -74,13 +66,23 @@ public class Bus {
 		this.transportationBusiness = transportationBusiness;
 	}
 
-	public Tour getTour() {
-		return tour;
+	public Set<Tour> getTours() {
+		return tours;
 	}
 
-	public void setTour(Tour tour) {
-		this.tour = tour;
+	public void setTours(Set<Tour> tours) {
+		this.tours = tours;
 	}
+
+	public String getLicense() {
+		return license;
+	}
+
+	public void setLicense(String license) {
+		this.license = license;
+	}
+
+
 
 	
 	

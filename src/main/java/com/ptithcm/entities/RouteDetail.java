@@ -7,8 +7,6 @@ import javax.persistence.*;
 public class RouteDetail {
 	
 	@Id
-	@Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	@ManyToOne

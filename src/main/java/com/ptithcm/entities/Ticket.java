@@ -9,8 +9,6 @@ import javax.persistence.*;
 public class Ticket {
 	
 	@Id
-	@Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@Temporal(TemporalType.DATE)

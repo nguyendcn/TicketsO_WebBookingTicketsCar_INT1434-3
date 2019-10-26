@@ -2,11 +2,13 @@ package com.ptithcm.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ptithcm.dao.TourDAOImp;
 import com.ptithcm.entities.Tour;
 
 @Transactional
@@ -14,10 +16,12 @@ import com.ptithcm.entities.Tour;
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class TourServiceImp implements ServicesBase<Tour>{
 
+	@Autowired
+	TourDAOImp tourDAOImp;
+	
 	@Override
 	public List<Tour> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return tourDAOImp.findAll();
 	}
 
 	@Override

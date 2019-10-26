@@ -15,8 +15,6 @@ import javax.persistence.Table;
 public class TransportationBusiness {
 	
 	@Id
-	@Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	private String headquarter;
@@ -25,9 +23,6 @@ public class TransportationBusiness {
 	
 	@OneToMany(mappedBy="transportationBusiness")
 	private Set<RouteDetail> routeDetails;
-	
-	@OneToMany(mappedBy="transportationBusiness")
-	private Set<Employee> employees;
 	
 	public int getId() {
 		return id;
@@ -65,11 +60,5 @@ public class TransportationBusiness {
 	public void setRouteDetails(Set<RouteDetail> routeDetails) {
 		this.routeDetails = routeDetails;
 	}
-	public Set<Employee> getEmployees() {
-		return employees;
-	}
-	public void setEmployees(Set<Employee> employees) {
-		this.employees = employees;
-	}
-	
+
 }

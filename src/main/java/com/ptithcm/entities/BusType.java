@@ -9,8 +9,6 @@ import javax.persistence.*;
 public class BusType {
 
 	@Id
-	@Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	private int numOfChair;

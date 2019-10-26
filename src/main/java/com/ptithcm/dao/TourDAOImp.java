@@ -2,6 +2,9 @@ package com.ptithcm.dao;
 
 import java.util.List;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Repository;
@@ -14,10 +17,13 @@ import com.ptithcm.entities.Tour;
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class TourDAOImp implements DAOBase<Tour>{
 
+	@Autowired
+	private SessionFactory sessionFactory;
+	
 	@Override
 	public List<Tour> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = sessionFactory.getCurrentSession();
+		return session.createQuery("From Tour", Tour.class).getResultList();
 	}
 
 	@Override
