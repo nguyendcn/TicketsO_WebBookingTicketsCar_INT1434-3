@@ -34,9 +34,6 @@ public class Employee {
 	private String address;
 	private String numberPhone;
 	
-	@OneToMany(mappedBy="employee")
-	private Set<Ticket> tickets;
-	
 	@ManyToOne
 	@JoinColumn(name="transportationBusinesses_id")
 	private TransportationBusiness transportationBusiness;
@@ -105,13 +102,6 @@ public class Employee {
 		this.numberPhone = numberPhone;
 	}
 
-	 public Set<Ticket> getTickets() {
-		return tickets;
-	}
-
-	public void setTickets(Set<Ticket> tickets) {
-		this.tickets = tickets;
-	}
 
 	public TransportationBusiness getTransportationBusiness() {
 		return transportationBusiness;

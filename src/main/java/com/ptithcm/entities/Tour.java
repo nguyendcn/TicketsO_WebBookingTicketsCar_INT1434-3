@@ -26,12 +26,9 @@ public class Tour {
 	@ManyToOne
     @JoinColumn(name="bus_id", nullable=false)
 	private Bus bus;
-
-	@OneToMany(mappedBy="tour")
-	private Set<Ticket> tickets;
 	
 	@OneToMany(mappedBy="tour")
-	private Set<Chairs> chairs;
+	private Set<Chair> chairs;
 	
 	public int getId() {
 		return id;
@@ -73,20 +70,20 @@ public class Tour {
 		this.bus = coach;
 	}
 
-	public Set<Ticket> getTickets() {
-		return tickets;
-	}
-
-	public void setTickets(Set<Ticket> tickets) {
-		this.tickets = tickets;
-	}
-
-	public Set<Chairs> getChairs() {
+	public Set<Chair> getChairs() {
 		return chairs;
 	}
 
-	public void setChairs(Set<Chairs> chairs) {
+	public void setChairs(Set<Chair> chairs) {
 		this.chairs = chairs;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
 	}
 	
 	

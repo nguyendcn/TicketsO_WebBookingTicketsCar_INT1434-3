@@ -1,7 +1,9 @@
 package com.ptithcm.service;
 
+import java.util.Date;
 import java.util.List;
 
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
@@ -9,7 +11,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ptithcm.dao.TourDAOImp;
+import com.ptithcm.entities.Chair;
 import com.ptithcm.entities.Tour;
+import com.ptithcm.models.RouteModel;
+import com.ptithcm.models.TourInfor;
 
 @Transactional
 @Service
@@ -26,8 +31,7 @@ public class TourServiceImp implements ServicesBase<Tour>{
 
 	@Override
 	public Tour findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return tourDAOImp.findById(id);
 	}
 
 	@Override
@@ -47,5 +51,17 @@ public class TourServiceImp implements ServicesBase<Tour>{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public List<Tour> getTourByOrder(String start, String end, Date date){
+		return tourDAOImp.getTourByOrder(start, end, date);
+	}
+	
+	public TourInfor getInfoTour(int id) {
+		return tourDAOImp.getInfoTour(id);
+	}
 
+	public RouteModel getRouteInfoById(int id) {
+		return tourDAOImp.getRouteInfoById(id);
+	}
+	
 }

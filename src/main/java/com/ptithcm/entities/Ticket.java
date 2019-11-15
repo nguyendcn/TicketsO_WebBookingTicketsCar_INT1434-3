@@ -9,27 +9,18 @@ import javax.persistence.*;
 public class Ticket {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@Temporal(TemporalType.DATE)
 	private Date createDate;
-	
-	@Temporal(TemporalType.DATE)
-	private Date departureDate;
-	
-	@ManyToOne
-	@JoinColumn(name="employee_id")
-	private Employee employee;
-	
+		
 	@ManyToOne
 	@JoinColumn(name="customer_id")
 	private Customer customer;
 	
-	@ManyToOne
-	@JoinColumn(name="tour_id")
-	private Tour tour;
+	private int id_Chair;
 	
-
 	public int getId() {
 		return id;
 	}
@@ -46,21 +37,6 @@ public class Ticket {
 		this.createDate = createDate;
 	}
 
-	public Date getDepartureDate() {
-		return departureDate;
-	}
-
-	public void setDepartureDate(Date departureDate) {
-		this.departureDate = departureDate;
-	}
-
-	public Employee getEmployee() {
-		return employee;
-	}
-
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
-	}
 
 	public Customer getCustomer() {
 		return customer;
@@ -70,14 +46,12 @@ public class Ticket {
 		this.customer = customer;
 	}
 
-
-	public Tour getTour() {
-		return tour;
+	public int getId_Chair() {
+		return id_Chair;
 	}
 
-	public void setTour(Tour tour) {
-		this.tour = tour;
+	public void setId_Chair(int id_Chair) {
+		this.id_Chair = id_Chair;
 	}
-
 	
 }

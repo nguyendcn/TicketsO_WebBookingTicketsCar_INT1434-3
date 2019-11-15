@@ -34,6 +34,15 @@
                 gtag('config', 'UA-53776455-15');
             </script>
 
+            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+            <link rel="stylesheet" href="/resources/demos/style.css">
+            <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script>
+                $(function() {
+                    $("#datepicker").datepicker();
+                });
+            </script>
         </head>
 
         <body data-spy="scroll" data-offset="70">
@@ -86,7 +95,7 @@
                         <div class="container">
                             <div class="main-banner-content">
                                 <h3>
-                                    <a href="" class="typewrite" data-period="2000" data-type='[ "Hihi", "Miumiu" ]'>
+                                    <a href="" class="typewrite" data-period="2000" data-type='[ "Booking your ticket easy", "Quckly for booking" ]'>
                                         <span class="wrap"></span>
                                     </a>
                                 </h3>
@@ -106,44 +115,44 @@
                     <div class="section-title">
                         <h2>Awesome Features</h2>
                         <ul>
-                            <li>One Click Import</li>
+                            <li>One Click Booking</li>
                             <li>Friendly Support</li>
-                            <li>Powerful Design</li>
+                            <li>Cheaper Tickets</li>
                         </ul>
                         <span class="section-title-bg">Features</span>
                     </div>
 
                     <div class="row">
 
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-3 col-md-6">
                             <div class="single-features">
-                                <img src="img/redux.png" alt="image">
+                                <img src="https://storage.googleapis.com/fe-production/svgIcon/static-icon-3.svg" alt="image">
 
-                                <h3>Redux Framework</h3>
+                                <h3>5000+ Tickets Agency</h3>
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-3 col-md-6">
                             <div class="single-features">
-                                <img src="img/acf.png" alt="image">
+                                <img src="https://storage.googleapis.com/fe-production/svgIcon/static-icon-4.svg" alt="image">
 
-                                <h3>Advanced Custom Fields PRO</h3>
+                                <h3>400+ Bus Station</h3>
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-3 col-md-6">
                             <div class="single-features">
-                                <img src="img/wpbakery.png" alt="image">
+                                <img src="https://storage.googleapis.com/fe-production/svgIcon/static-icon-2.svg" alt="image">
 
-                                <h3>WPBakery Page Builder</h3>
+                                <h3>2000+ Bus Campany</h3>
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-3 col-md-6">
                             <div class="single-features">
-                                <img src="img/one-click-demo.png" alt="image">
+                                <img src="https://storage.googleapis.com/fe-production/svgIcon/static-icon-1.svg" alt="image">
 
-                                <h3>One Click Demo Import</h3>
+                                <h3>5000+ Route</h3>
                             </div>
                         </div>
 
@@ -188,6 +197,9 @@
                             </ul>
                             <!-- Tab panes -->
                             <div class="tab-content">
+
+                                <p>Date: <input type="text" id="datepicker"></p>
+
                                 <div role="tabpanel" class="tab-pane fade" id="saigon">
                                     <div class="clearfix fix-col">
                                         <div class="col-md-6 pl0 pr0">
@@ -195,7 +207,8 @@
                                                 <li>
                                                     <a href="/vi-VN/ve-xe-khach-tu-sai-gon-di-ha-noi-129t1241.html"><span class="route fl"><small>Sài Gòn →</small> Hà Nội</span></a>
                                                     <span class="price fl">900.000 ₫/vé</span>
-                                                    <input class="input-txt selectDate hasDatepicker" type="hidden" data-url="/vi-VN/ve-xe-khach-tu-sai-gon-di-ha-noi" data-param="129t1241.html" id="dp1568964760371"><button type="button" class="ui-datepicker-trigger">Chọn ngày</button>
+                                                    <input id="datepicker" type="text">
+                                                    <button type="button" class="ui-datepicker-trigger">Chọn ngày</button>
                                                 </li>
 
                                                 <li>
@@ -574,33 +587,57 @@
             <div id="about-us" class="about-us-area">
                 <div class="container">
                     <div class="section-title">
-                        <h2>About Us</h2>
-                        <span class="section-title-bg">Like</span>
+                        <h2>Bus station</h2>
+                        <span class="section-title-bg">Bus station</span>
                     </div>
                 </div>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-4 col-md-6">
                             <div class="single-features">
-                                <img src="img/redux.png" alt="image">
+                                <img src="https://storage.googleapis.com/fe-production/images/bx-mien-dong.jpg" alt="image">
 
-                                <h3>Redux Framework</h3>
+                                <h3>Mien Dong Station</h3>
                             </div>
                         </div>
 
                         <div class="col-lg-4 col-md-6">
                             <div class="single-features">
-                                <img src="img/acf.png" alt="image">
+                                <img src="https://storage.googleapis.com/fe-production/images/bx-nuoc-ngam.jpg" alt="image">
 
-                                <h3>Advanced Custom Fields PRO</h3>
+                                <h3>Nuoc Ngam Station</h3>
                             </div>
                         </div>
 
                         <div class="col-lg-4 col-md-6">
                             <div class="single-features">
-                                <img src="img/wpbakery.png" alt="image">
+                                <img src="https://kenhhomestay.com/wp-content/uploads/2019/06/ben-xe-giap-bat.jpg" height="243" alt="image">
 
-                                <h3>WPBakery Page Builder</h3>
+                                <h3>Giap Bat Station</h3>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="single-features">
+                                <img src="https://storage.googleapis.com/fe-production/images/bx-my-dinh.jpg" alt="image">
+
+                                <h3>My Dinh Station</h3>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="single-features">
+                                <img src="https://megabus.vn/wp-content/uploads/2018/12/bx-mien-tay_megabus-5-750x410.jpg" alt="image">
+
+                                <h3>Mien Tay Station</h3>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="single-features">
+                                <img src="https://storage.googleapis.com/fe-production/images/bx-gia-lam.jpg" alt="image">
+
+                                <h3>Gia Lam Station</h3>
                             </div>
                         </div>
 
@@ -614,32 +651,32 @@
                 <div class="container">
                     <div class="section-title">
                         <h2>Contact</h2>
-                        <span class="section-title-bg">Like</span>
+                        <span class="section-title-bg">About Us</span>
                     </div>
                 </div>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-4 col-md-6">
                             <div class="single-features">
-                                <img src="img/redux.png" alt="image">
+                                <img src="${pageContext.request.contextPath}/resources/images/logo/main-logo.png" alt="image">
 
-                                <h3>Redux Framework</h3>
+                                <h3>Introduce</h3>
                             </div>
                         </div>
 
                         <div class="col-lg-4 col-md-6">
                             <div class="single-features">
-                                <img src="img/acf.png" alt="image">
+                                <img src="${pageContext.request.contextPath}/resources/images/logo/main-logo-text.png" alt="image">
 
-                                <h3>Advanced Custom Fields PRO</h3>
+                                <h3>Email: nguyendangdcn@gmail.com</h3>
                             </div>
                         </div>
 
                         <div class="col-lg-4 col-md-6">
                             <div class="single-features">
-                                <img src="img/wpbakery.png" alt="image">
+                                <img src="${pageContext.request.contextPath}/resources/images/logo/main-logo.png" alt="image">
 
-                                <h3>WPBakery Page Builder</h3>
+                                <h3>Hotline: 19008198</h3>
                             </div>
                         </div>
 
@@ -653,8 +690,8 @@
             <footer class="footer-area" style="background-color: black">
                 <div class="container">
                     <div class="footer-content">
-                        <h1>Hihi</h1>
-                        <p>It has purpose oriented design and it is suitable for users with zero programming skills as well as advanced developers.</p>
+                        <h1>TicketsO</h1>
+                        <p>Quick booking your tickets. Easy, quick, book your ticket.</p>
 
                         <div class="copyright">
                             <span>This is my website. <a href="dcnguyen.ooo">DCN</a></span>
@@ -674,6 +711,10 @@
             <script src="${pageContext.request.contextPath}/resources/core/index-page/js/bootstrap.min.js"></script>
             <!-- Main JS -->
             <script src="${pageContext.request.contextPath}/resources/js/index.js"></script>
+
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+            <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+            <!------ Include the above in your HEAD tag ---------->
         </body>
 
         </html>

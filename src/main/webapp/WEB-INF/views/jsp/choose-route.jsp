@@ -19,7 +19,9 @@
             <!-- Style CSS -->
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/index-style.css">
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/choose-route.css">
-
+            <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/jquery.autocomplete.css">
+            <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/core/datepicker/css/datepicker.css">
+            
             <title>TicketsO | Bus Online Booking Services</title>
 
             <link rel="icon" type="image/png" href="img/favicon.png">
@@ -35,6 +37,35 @@
                 gtag('js', new Date());
 
                 gtag('config', 'UA-53776455-15');
+            </script>
+
+            <script>
+                $(function() {
+                    'use strict';
+                    var nowTemp = new Date();
+                    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+
+                    var checkin = $('#timeCheckIn').datepicker({
+                        onRender: function(date) {
+                            return date.valueOf() < now.valueOf() ? 'disabled' : '';
+                        }
+                    }).on('changeDate', function(ev) {
+                        if (ev.date.valueOf() > checkout.date.valueOf()) {
+                            var newDate = new Date(ev.date)
+                            newDate.setDate(newDate.getDate() + 1);
+                            checkout.setValue(newDate);
+                        }
+                        checkin.hide();
+                        //$('#timeCheckOut')[0].focus();
+                    }).data('datepicker');
+                    var checkout = $('#timeCheckOut').datepicker({
+                        onRender: function(date) {
+                            return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+                        }
+                    }).on('changeDate', function(ev) {
+                        checkout.hide();
+                    }).data('datepicker');
+                });
             </script>
 
         </head>
@@ -95,7 +126,7 @@
                         <div class="row header-row">
                             <div class="col-md-6 hidden-sm hidden-xs">
                                 <h1 class="title-text-route">
-                                    <span class="hidden-xs hidden-sm">Vé xe từ</span> Sài Gòn đến Hà Nội </h1>
+                                    <span class="hidden-xs hidden-sm">Vé còn xe từ</span> Sài Gòn đến Hà Nội </h1>
                             </div>
                             <div class="col-md-6 hidden-sm hidden-xs">
                                 <h6 class="mt0 route-title hidden-sm hidden-xs route-title-bus-ticket">
@@ -114,29 +145,22 @@
             <div class="search-area">
                 <div id="dvSearchTicket" class="ticket-search-filter ">
                     <div class="container-route desktop-route-search hidden-xs hidden-sm">
-                        <form id="searchForm" class="form-inline">
-                            <input type="hidden" id="search-busoperator-id" value="0">
-                            <input type="hidden" id="search-busoperator-name">
+                        <form id="searchForm" class="form-inline" action="booking" method="POST">
                             <div class="form-group">
-                                <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input onfocus="this.select();" onmouseup="return false;" id="departPlace" name="departPlace" type="text" class="ui-autocomplete-input location-search"
-                                    placeholder="Gõ vào nơi đi" accesskey="1" tabindex="1" autocomplete="off" value="Sài Gòn">
-                                <input type="hidden" id="start-point-type" value="1">
-                                <input type="hidden" id="start-point-id" value="29">
+                                <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                                <input onfocus="this.select();" onmouseup="return false;" id="departPlace" name="departPlace" type="text" class="ui-autocomplete-input location-search" placeholder="Gõ vào nơi đi" value="Sài Gòn">
                             </div>
                             <div class="form-group hidden-xs">
                                 <a href="#" class="switchButton">⇌</a>
                             </div>
                             <div class="form-group">
-                                <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input onfocus="this.select();" onmouseup="return false;" id="destination" name="destination" type="text" class="ui-autocomplete-input location-search"
-                                    placeholder="Gõ vào nơi đến" accesskey="2" tabindex="2" autocomplete="off" value="Hà Nội">
-                                <input type="hidden" id="stop-point-type" value="1">
-                                <input type="hidden" id="stop-point-id" value="24">
-
+                                <span class="ui-helper-hidden-accessible"></span>
+                                <input onfocus="this.select();" onmouseup="return false;" id="destination" name="destination" type="text" class="ui-autocomplete-input location-search" placeholder="Gõ vào nơi đến" accesskey="2" tabindex="2" autocomplete="off" value="B">
                             </div>
                             <div class="form-group departDate-fg">
                                 <i class="fa fa-caret-left" id="mbtPrevDate"></i>
                                 <i class="fa fa-caret-right" id="mbtNextDate"></i>
-                                <input id="departDate" readonly="" name="departDate" type="text" class="date calendar-search hasDatepicker" placeholder="Chọn ngày đi" accesskey="1" tabindex="3" value="04-10-2019">
+                                <input data-provide="datepicker" id="timeCheckIn" class="form-control" readonly="" name="departDate" type="text" class="date calendar-search hasDatepicker" placeholder="Chọn ngày đi" accesskey="1" tabindex="3" value="27-10-2019">
                                 <div class="form-group quick-date-select fr hidden-xs hidden-sm">
                                     <button id="btToday" type="button" class="fl btn btn-gray btn-today">Hôm nay</button>
                                     <button id="btTomorrow" type="button" class="fl btn btn-gray btn-tomorrow">
@@ -145,16 +169,15 @@
                                 </div>
                             </div>
                             <div class="form-group pull-right">
-                                <button id="searchSubmit" name="searchSubmit" type="submit" class="submit-btn btn  search-btn" tabindex="4">
+                                <button id="searchSubmit" type="submit" class="submit-btn btn  search-btn" tabindex="4">
                                     Tìm Vé Xe Rẻ
                                 </button>
                             </div>
                         </form>
                     </div>
-                    <div class="mobi-display hidden-ms" style="display:none;">
 
-                    </div>
                 </div>
+            </div>
             </div>
             <!--End Search Area-->
 
@@ -165,98 +188,96 @@
                         <div id="replaceDiv">
                             <div class="searchResults">
                                 <ul class="result-list" style="margin: 0px;">
-                                    <li class="result-item col-12 col-md-12 col-xs-12">
-                                        <div class="container-route">
-                                            <div style="display: none" id="04102019-00601410"></div>
-                                            <div class="hidden-xs">
-                                                <div class="col-2 col-md-2 col-sm-3 col-xs-2">
-                                                    <div class="row">
-                                                        <div class="pull-left comp-name-container">
-                                                            <h6 class="mt0 mb10 comp-name-title  text-gray3" title="Tiến Tiến">Tiến Tiến</h6>
-                                                            <div class="col-lg-12 service-plus-in hidden-xs">
-                                                                <img src="https://storage.googleapis.com/fe-production/images/wifi.svg">
-                                                                <img src="https://storage.googleapis.com/fe-production/images/Water.svg">
+
+
+                                    <c:forEach items="${resultData}" var="result">
+                                        <li class="result-item col-12 col-md-12 col-xs-12">
+                                            <div class="container-route">
+                                                <div style="display: none" id="04102019-00601410"></div>
+                                                <div class="hidden-xs">
+                                                    <div class="col-2 col-md-2 col-sm-3 col-xs-2">
+                                                        <div class="row">
+                                                            <div class="pull-left comp-name-container">
+                                                                <h6 class="mt0 mb10 comp-name-title  text-gray3" title="${result.tenNhaXe}">${result.tenNhaXe}</h6>
+                                                                <div class="col-lg-12 service-plus-in hidden-xs">
+                                                                    <img src="https://storage.googleapis.com/fe-production/images/wifi.svg">
+                                                                    <img src="https://storage.googleapis.com/fe-production/images/Water.svg">
+                                                                </div>
+                                                                <ul class="busInfo hidden-sm hidden-xs hinh-anh">
+                                                                    <li style="width:65px;">
+                                                                        <a class="ml5 ticket-detail-tab-link text-route-link hover-orange-border hover-blue-text" href="#" data-tab="hinhanh" data-text="Hình ảnh">
+                                                                            Hình ảnh
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
                                                             </div>
-                                                            <ul class="busInfo hidden-sm hidden-xs hinh-anh">
-                                                                <li style="width:65px;">
-                                                                    <a class="ml5 ticket-detail-tab-link text-route-link hover-orange-border hover-blue-text" href="#" data-tab="hinhanh" data-text="Hình ảnh">
-                                    Hình ảnh
-                                </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
 
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="col-4 col-md-5 col-lg-4 col-sm-3 col-xs-4 hidden-xs detail-route">
-                                                    <div class="col-12 ml10" style="text-align:center;">
-                                                        <div class="col-5 col-md-5 col-sm-12 text-left-from">
-                                                            <h6 class="span-from-time mt0 mb5" data-busticketstatus="2" data-workingtime="True" data-istetticket="0" data-tripid="2741969" data-pickupdate="06:00 04-10-2019">
-                                                                06:00
-                                                            </h6>
+                                                    <div class="col-4 col-md-5 col-lg-4 col-sm-3 col-xs-4 hidden-xs detail-route">
+                                                        <div class="col-12 ml10" style="text-align:center;">
+                                                            <div class="col-5 col-md-5 col-sm-12 text-left-from">
+                                                                <h6 class="span-from-time mt0 mb5">
+                                                                    ${result.timeStart}
+                                                                </h6>
+                                                            </div>
+                                                            <div class="col-2 col-md-2 col-sm-12 text-left" style="padding:0;">
+                                                                <i class="text-gray3 left-arrow" style="display: inline-block;margin-top:-10px;line-height:15px;font-size:12px;text-align:center;">
+                                                                    ${routeInfo.totalTime}'
+                                                                    <br>
+                                                                    <img style="width:45px;height:10px;" src="https://storage.googleapis.com/fe-production/images/from-to2.png">
+                                                                    <br>
+                                                                    dự kiến
+                                                                </i>
+                                                            </div>
+                                                            <div class="col-5 col-md-5 col-sm-12 text-left-to">
+                                                                <h6 class="span-to-time-mobi mt0 mb5 text-gray3">
+                                                                    ${result.timeEnd}
+                                                                </h6>
+                                                            </div>
+                                                            <div class="clearfix"></div>
+                                                            <div class="pull-left hidden-sm" style="width:100%;">
+                                                                <div class="col-5 col-md-5 col-sm-5 text-left">
+                                                                    <a class="depart-station ticket-detail-tab-link text-route-link hover-orange-border hover-blue-text" style="color:#333">
+                                                                        ${routeInfo.dep}
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-2 col-md-2 col-sm-2 hidden-xs hidden-sm payoo-mt2 total-time-text"></div>
+                                                                <div class="col-5 col-md-5 col-sm-5 payoo-mt2 text-left">
+                                                                    <a class="destination-station ticket-detail-tab-link text-route-link hover-orange-border hover-blue-text" style="color:#333">
+                                                                        ${routeInfo.des}
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+
                                                         </div>
-                                                        <div class="col-2 col-md-2 col-sm-12 text-left" style="padding:0;">
-                                                            <i class="text-gray3 left-arrow" style="display: inline-block;margin-top:-10px;line-height:15px;font-size:12px;text-align:center;">
-                            32h10'
-                            <br>
-                            <img style="width:45px;height:10px;" src="https://storage.googleapis.com/fe-production/images/from-to2.png">
-                            <br>
-                            dự kiến
-                        </i>
-                                                        </div>
-                                                        <div class="col-5 col-md-5 col-sm-12 text-left-to">
-                                                            <h6 class="span-to-time-mobi mt0 mb5 text-gray3" data-busticketstatus="2" data-workingtime="True" data-istetticket="0">
-                                                                14:10
-                                                            </h6>
+                                                    </div>
+                                                    <div class="col-2 col-md-2 col-sm-3 col-xs-2">
+                                                        <div class="vehicle-type-p mb3 text-left text-gray3" data-value="39" style="margin-bottom:3px !important">
+                                                            ${result.typeBus}
                                                         </div>
                                                         <div class="clearfix"></div>
-                                                        <div class="pull-left hidden-sm" style="width:100%;">
-                                                            <div class="col-5 col-md-5 col-sm-5 text-left">
-                                                                <a class="depart-station ticket-detail-tab-link text-route-link hover-orange-border hover-blue-text" style="color:#333" data-appended="0" data-trip-id="2741969" data-time="06:00" data-tripcode="v2CKitCRCRBhoCMDYiAjAwMNGtpwE6CjA0LTEwLTIwMTlIHVAY" data-id="153256"
-                                                                    data-value="Bến xe Miền Đông - quầy vé 51" href="#" onclick="return false;" data-tab="banggia" data-text="Bến xe..." data-toggle="tooltip" title="292 Đinh Bộ Lĩnh - Bình Thạnh - Hồ Chí Minh">
-                                Bến xe Miền Đông...
-                            </a>
-                                                            </div>
-                                                            <div class="col-2 col-md-2 col-sm-2 hidden-xs hidden-sm payoo-mt2 total-time-text"></div>
-                                                            <div class="col-5 col-md-5 col-sm-5 payoo-mt2 text-left">
-                                                                <a class="destination-station ticket-detail-tab-link text-route-link hover-orange-border hover-blue-text" style="color:#333" data-appended="0" data-trip-id="2741969" data-tripcode="v2CKitCRCRBhoCMDYiAjAwMNGtpwE6CjA0LTEwLTIwMTlIHVAY" data-time="06:00"
-                                                                    data-id="785" data-value="Bến xe Giáp Bát" href="#" onclick="return false;" data-tab="banggia" data-text="Bến xe..." data-toggle="tooltip" title="Đường Giải Phóng, Giáp Bát - Hoàng Mai - Hà Nội">
-                                Bến xe Giáp Bát
-                            </a>
-                                                            </div>
+                                                        <div class="service-call seats-text text-left mt15">
+                                                            <span class="">${result.ableChair}</span> Ghế trống
                                                         </div>
+                                                    </div>
 
+                                                    <div class="text-right pr0 col-md-3 col-sm-3 col-xs-2 col-lg-2">
+                                                        <h6 data-value="${result.cost}" class="mt0 price 14">
+                                                            ${result.cost} <small style="vertical-align: top;" class="unit-price-small">đ</small>
+                                                        </h6>
+                                                        <p style="margin:0;">
+                                                            <a id="" class="ticket-ac-btn btn-vxr-lg btn pull-right w100 hasSeat closed online-button" href="#04102019-00601410" title="Nhấp để đặt vé" onclick="ga('send', 'event', 'Đặt vé', 'click','Đặt vé tại Tuyến đường Sài Gòn đi Hà Nội nhà xe Tiến Tiến')">Chọn chỗ</a>
+                                                            <a style="display: none;" title="Nhấp để đóng lại" href="javascript:;" class="ticket-ac-btn btn btn-lg btn-vxr-gray-lg w100 open online-button">Đóng lại</a>
+                                                        </p>
                                                     </div>
                                                 </div>
-                                                <div class="col-2 col-md-2 col-sm-3 col-xs-2">
-                                                    <div class="vehicle-type-p mb3 text-left text-gray3" data-value="39" style="margin-bottom:3px !important">
-                                                        Giường nằm 44 chỗ
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                    <div class="service-call seats-text text-left mt15">
-                                                        <span class="">20</span> Ghế trống
-                                                    </div>
-                                                </div>
 
-                                                <div class="text-right pr0 col-md-3 col-sm-3 col-xs-2 col-lg-2">
-                                                    <meta content="700.000">
-                                                    <h6 data-value="700000" class="mt0 price 14">
-                                                        700.000 <small style="vertical-align: top;" class="unit-price-small">đ</small>
-                                                    </h6>
-                                                    <p style="margin:0;">
-                                                        <a id="" class="ticket-ac-btn btn-vxr-lg btn pull-right w100 hasSeat closed online-button" href="#04102019-00601410" title="Nhấp để đặt vé" onclick="ga('send', 'event', 'Đặt vé', 'click','Đặt vé tại Tuyến đường Sài Gòn đi Hà Nội nhà xe Tiến Tiến')">Chọn chỗ</a>
-                                                        <a style="display: none;" title="Nhấp để đóng lại" href="javascript:;" class="ticket-ac-btn btn btn-lg btn-vxr-gray-lg w100 open online-button">Đóng lại</a>
-                                                    </p>
-                                                </div>
-
-                                                <div class="col-12 col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                                                    <i>*Thuộc chuyến 06:00 04-10-2019 Sài Gòn - Thanh Hóa - Hà Nội</i>
-                                                </div>
                                             </div>
+                                        </li>
+                                    </c:forEach>
 
-                                        </div>
-                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -274,16 +295,16 @@
                                 <div class="row" style="flex-wrap: unset;">
                                     <div class=" col-md-6 col-sm-6 border-note right-detail ">
                                         <h2 class="mt10 text-center title-road-backlink mb0 ">
-                                            Thông tin tuyến đường Hồ Chí Minh đi Hà Nội
+                                            Thông tin tuyến đường ${routeInfo.dep} đi ${routeInfo.des}
                                         </h2>
                                         <ul class="list-detail-route ">
                                             <li>
                                                 <p class="col-md-6 col-sm-6 text-left ">Chiều dài tuyến đường :</p>
-                                                <p class="col-md-6 text-right "><b>1394 km</b> </p>
+                                                <p class="col-md-6 text-right "><b>${routeInfo.distance} km</b> </p>
                                             </li>
                                             <li>
                                                 <p class="col-md-6 col-sm-6 text-left ">Thời gian di chuyển :</p>
-                                                <p class="col-md-6 text-right "><b>32 giờ</b> </p>
+                                                <p class="col-md-6 text-right "><b>${routeInfo.totalTime} giờ</b> </p>
                                             </li>
                                             <li>
                                                 <p class="col-md-6 col-sm-6 text-left ">Giá vé trung bình :</p>
@@ -302,7 +323,7 @@
                                     </div>
                                     <div class="col-md-6 col-sm-6 border-note right-detail " style="margin-right: 0; float: right; ">
                                         <h3 class="mt10 text-center title-road-backlink mb0 ">
-                                            <span>Đặt vé xe khách, xe limousine các hãng xe từ Hồ Chí Minh đến Hà Nội</span>
+                                            <span>Đặt vé xe khách, xe limousine các hãng xe từ ${routeInfo.dep} đi ${routeInfo.des}</span>
                                         </h3>
                                         <table class="table seo-table ">
                                             <thead>
@@ -384,7 +405,7 @@
                             </div>
                         </div>
                         <div class="road ">
-                            <span>Lộ trình khoảng: 1394 km</span>
+                            <span>Lộ trình khoảng: ${tourInfor.distance} km</span>
                         </div>
                     </div>
                 </div>
@@ -416,6 +437,8 @@
             <script src="${pageContext.request.contextPath}/resources/core/index-page/js/bootstrap.min.js "></script>
             <!-- Main JS -->
             <script src="${pageContext.request.contextPath}/resources/js/index.js "></script>
+            <script src="${pageContext.request.contextPath}/resources/js/jquery.autocomplete.js "></script>
+            <script src="${pageContext.request.contextPath}/resources/core/datepicker/js/bootstrap-datepicker.js"></script>;
         </body>
 
         </html>

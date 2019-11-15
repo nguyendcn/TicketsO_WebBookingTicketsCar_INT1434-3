@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Chairs")
-public class Chairs {
+public class Chair {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,8 +14,6 @@ public class Chairs {
 	private String name;
 	@Column(nullable=true)
 	private int status_id;
-	@Column(nullable=true)
-	private int ticket_id;
 	
 	@ManyToOne
 	@JoinColumn(name="tours_id")
@@ -47,14 +45,6 @@ public class Chairs {
 		this.status_id = status_id;
 	}
 
-	public int getTicket_id() {
-		return ticket_id;
-	}
-
-	public void setTicket_id(int ticket_id) {
-		this.ticket_id = ticket_id;
-	}
-
 	public Tour getTour() {
 		return tour;
 	}
@@ -62,7 +52,4 @@ public class Chairs {
 	public void setTour(Tour tour) {
 		this.tour = tour;
 	}
-
-
-	
 }

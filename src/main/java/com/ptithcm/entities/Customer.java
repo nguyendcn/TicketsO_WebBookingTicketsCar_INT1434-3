@@ -11,10 +11,7 @@ public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String firstName;
-	private String lastName;
-	private boolean gender;
-	private String address;
+	private String fullName;
 	private String email;
 	private String numberPhone;
 	
@@ -30,36 +27,13 @@ public class Customer {
 		this.id = id;
 	}
 
-	public String getFirstName() {
-		return firstName;
+
+	public String getFullName() {
+		return fullName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public boolean isGender() {
-		return gender;
-	}
-
-	public void setGender(boolean gender) {
-		this.gender = gender;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 
 	public String getEmail() {

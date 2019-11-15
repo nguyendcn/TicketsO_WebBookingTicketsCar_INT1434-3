@@ -12,7 +12,7 @@ import com.ptithcm.entities.Bus;
 @Repository()
 @Transactional()
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class CoachDAOImp implements DAOBase<Bus> {
+public class BusDAOImp implements DAOBase<Bus> {
 
 	@Override
 	public List<Bus> findAll() {
