@@ -10,9 +10,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -41,6 +44,9 @@ import com.ptithcm.service.TourServiceImp;
 @RequestMapping("/booking")
 public class BookingController {
 
+	@Autowired
+	JavaMailSender jms;
+	
 	@Autowired
 	TourServiceImp tsi;
 
@@ -138,7 +144,9 @@ public class BookingController {
 			cus.setEmail(bm.getEmail());
 			cus.setFullName(bm.getName());
 			cussi.addNew(cus);
+			customer = cussi.findByNumberPhone(bm.getNumberPhone());
 		}
+		
 		
 		List<Chair> lChair = csi.getListChairByOrder(lc, bm.getId_tour());
 		
@@ -148,9 +156,11 @@ public class BookingController {
 			ticketsi.save(ticket);
 		});
 		
-		sendMailToCustomer();
+		BookingSuccessInfo bsi =  getInfoSuccess(bm, customer, listTicket, lChair);
 		
-		modelMap.addAttribute("bookingInfo", getInfoSuccess(bm, customer, listTicket, lChair));
+		modelMap.addAttribute("bookingInfo", bsi);
+		
+		sendMailToCustomer(bsi, customer);
 		
 		return "booking-success";
 	}
@@ -250,8 +260,23 @@ public class BookingController {
 		
 	}
 	
-	public void sendMailToCustomer() {
-		
+	public void sendMailToCustomer(BookingSuccessInfo bsi, Customer customer) {
+		try {
+			MimeMessage mail = jms.createMimeMessage();
+			
+			MimeMessageHelper helper = new MimeMessageHelper(mail);
+			
+			helper.setFrom("superntseal@gmail.com");
+			helper.setTo(customer.getEmail());
+			helper.setReplyTo("noreply@ticketso.com", "TicketsO");
+			helper.setSubject("TicketsO-Booking Success");
+			helper.setText(bsi.toString(), true);
+			
+			jms.send(mail);
+			
+		}catch(Exception ex){
+			System.out.println(ex.getMessage());
+		}
 	}
 	
 	public BookingSuccessInfo getInfoSuccess(BookingInfo bi, Customer customer, List<Ticket> lTicket, List<Chair> lChair) {

@@ -17,6 +17,10 @@
                 window.onload = function() {
                     document.getElementById('submit-text').click();
                 }
+
+                function backToHome() {
+                    window.location = "http://localhost:9999/TicketsO";
+                }
             </script>
         </head>
 
@@ -93,9 +97,8 @@
                             </div>
 
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                        <div class="modal-footer" onclick="backToHome()">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Back to HomeHome</button>
                         </div>
                     </div>
                 </div>

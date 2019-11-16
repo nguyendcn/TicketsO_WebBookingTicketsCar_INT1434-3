@@ -69,6 +69,7 @@
                             <li class="nav-item"> <a class="nav-link" href="#features">Features</a></li>
                             <li class="nav-item"> <a class="nav-link" href="#about-us">About Us</a></li>
                             <li class="nav-item"> <a class="nav-link" href="#contact">Contact</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="http://localhost:9999/TicketsO/TicketInfo">Tickets</a></li>
                         </ul>
 
                         <div class="others-options">

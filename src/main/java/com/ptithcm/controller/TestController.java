@@ -67,4 +67,9 @@ public class TestController {
 	public String test2() {
 		return "booking-success";
 	}
+	
+	@RequestMapping("/test/3")
+	public String test3() {
+		return "tickets-info";
+	}
 }
