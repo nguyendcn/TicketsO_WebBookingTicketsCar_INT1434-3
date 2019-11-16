@@ -1,5 +1,6 @@
 package com.ptithcm.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -28,8 +29,9 @@ public class TicketDAOImp implements DAOBase<Ticket>{
 
 	@Override
 	public Ticket findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = sessionFactory.getCurrentSession();
+		
+		return session.find(Ticket.class, id);
 	}
 
 	@Override
@@ -49,6 +51,14 @@ public class TicketDAOImp implements DAOBase<Ticket>{
 	public void delete(Ticket entity) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public List<Ticket> getTicketByIdCustomer(int id){
+		Session session = sessionFactory.getCurrentSession();
+		
+		String query = "from Ticket t where t.customer.id = '" + id + "'";
+		
+		return session.createQuery(query, Ticket.class).getResultList();
 	}
 
 }

@@ -94,8 +94,8 @@ public class ChairDAOImp implements DAOBase<Chair> {
 
 	@Override
 	public Chair findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = sessionFactory.getCurrentSession();
+		return session.find(Chair.class, id);
 	}
 
 	@Override

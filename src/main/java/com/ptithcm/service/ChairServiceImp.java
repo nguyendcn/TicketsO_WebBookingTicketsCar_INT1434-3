@@ -27,8 +27,7 @@ public class ChairServiceImp implements ServicesBase<Chair>{
 
 	@Override
 	public Chair findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return cdi.findById(id);
 	}
 
 	@Override

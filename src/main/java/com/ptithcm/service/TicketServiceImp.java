@@ -27,8 +27,7 @@ public class TicketServiceImp implements ServicesBase<Ticket>{
 
 	@Override
 	public Ticket findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return tdi.findById(id);
 	}
 
 	@Override
@@ -46,6 +45,10 @@ public class TicketServiceImp implements ServicesBase<Ticket>{
 	public void delete(Ticket entity) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public List<Ticket> getTicketByIdCustomer(int id){
+		return tdi.getTicketByIdCustomer(id);
 	}
 
 }
