@@ -50,22 +50,11 @@ public class UserDAOImp implements DAOBase<User> {
 		return session.createQuery("FROM User", User.class).getResultList();
 	}
 	
-	@SuppressWarnings("deprecation")
 	public int add(User user) {
 		Session session = this.sessionFactory.getCurrentSession();
-		ProcedureCall pc = session.createStoredProcedureCall("sp_User_DeleteUsersById");
-		pc.registerParameter("avatar", String.class, ParameterMode.IN).bindValue(user.getAvatar());
-		pc.registerParameter("email", String.class, ParameterMode.IN).bindValue(user.getEmail());
-		pc.registerParameter("lastTimeLogin", String.class, ParameterMode.IN).bindValue(user.getLastTimeLogin().toGMTString());
-		pc.registerParameter("userName", String.class, ParameterMode.IN).bindValue(user.getName());
-		pc.registerParameter("password", String.class, ParameterMode.IN).bindValue(user.getName());
-		pc.registerParameter("profile_id", String.class, ParameterMode.IN).bindValue(user.getProfile_id());
-		pc.registerParameter("registerDate", String.class, ParameterMode.IN).bindValue(user.getRegisterDate().toGMTString());
-		pc.registerParameter("role_id", Integer.class, ParameterMode.IN).bindValue(user.getRole().getId());
-		pc.registerParameter("status_id", Integer.class, ParameterMode.IN).bindValue(user.getStatus().getId());
 		
-		int affectRows = pc.executeUpdate();
-		return affectRows;
+		
+		return 1;
 	}
 	
 	public int deleteUserById(int id) {
@@ -83,7 +72,7 @@ public class UserDAOImp implements DAOBase<User> {
 		Session session = this.sessionFactory.getCurrentSession();
 
 		ProcedureCall pc = session.createStoredProcedureCall("sp_Users_GetQuantityUser");
-		return ((BigInteger) pc.getResultList().get(0)).intValue();
+		return  (int) pc.getResultList().get(0);
 	}
 
 	public List<User> findByPage(int page, int numPerPage) {

@@ -67,7 +67,7 @@
                             <div class="dropdown profile-element">
                                 <a data-toggle="dropdown" class="dropdown-toggle" href="http://trials.vevs.website/nguyenne/index.php?controller=pjBusSchedule&amp;action=pjActionDashboard#">
                                     <span class="clear"> 
-							<span class="block m-t-xs"> <strong class="font-bold">nguyen</strong></span>
+							<span class="block m-t-xs"> <strong class="font-bold">${user}</strong></span>
                                     <span class="text-muted text-xs block">Super User <b class="caret"></b></span>
                                     </span>
                                 </a>
@@ -142,7 +142,7 @@
                                 <li><a href="http://trials.vevs.website/nguyenne/index.php?controller=pjCmsSettings&amp;action=pjActionDetails">Company Details</a></li>
                                 <li><a href="http://trials.vevs.website/nguyenne/index.php?controller=pjCmsSettings&amp;action=pjActionRegional">Regional Settings</a></li>
                                 <li><a href="http://trials.vevs.website/nguyenne/index.php?controller=pjCmsSettings&amp;action=pjActionOptions">General Options</a></li>
-                                <li><a href="${pageContext.request.contextPath}/dashboard/user/management">Users</a></li>
+                                <li><a href="${pageContext.request.contextPath}/dashboard/users/show">Users</a></li>
                                 <li><a href="http://trials.vevs.website/nguyenne/index.php?controller=pjCmsLocale&amp;action=pjActionIndex">Languages</a></li>
                                 <li><a href="http://trials.vevs.website/nguyenne/index.php?controller=pjCmsSettings&amp;action=pjActionDesign">Design &amp; Colors</a></li>
                                 <li>

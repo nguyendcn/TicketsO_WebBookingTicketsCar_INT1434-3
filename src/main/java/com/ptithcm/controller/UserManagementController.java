@@ -110,7 +110,7 @@ public class UserManagementController {
 		//System.out.println(role.getId());
 		System.out.println(user.toString());
 		
-		userServiceImp.add(user);
+		userServiceImp.save(user);
 		
 		return "dashboard/user-management/user-list";
 	}
@@ -146,7 +146,7 @@ public class UserManagementController {
 	@RequestMapping("/management")
 	public String init_m(ModelMap modelMap) {
 		List<User> le = userServiceImp.findByPage(1, 5);
-		int quantity = Integer.parseInt(le.get(le.size() - 1).getPassword());
+		int quantity = 2;
 		
 		le.remove(le.get(le.size() - 1));
 		
