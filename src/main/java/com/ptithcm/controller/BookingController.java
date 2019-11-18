@@ -66,6 +66,12 @@ public class BookingController {
 	public String defaultBooking() {
 		return "choose-route";
 	}
+	
+	@RequestMapping(value ="changelang", method = RequestMethod.GET)
+	@ResponseBody
+	public String changeLang(@RequestParam(value = "language") String lang) {
+		return "success";
+	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	public String findTourResult(@RequestParam("departPlace") String start, @RequestParam("destination") String end,
@@ -98,6 +104,9 @@ public class BookingController {
 
 			modelMap.addAttribute("resultData", lti);
 			modelMap.addAttribute("routeInfo", rm);
+			modelMap.addAttribute("departure", start);
+			modelMap.addAttribute("destination", end);
+			modelMap.addAttribute("dateDeparture", startDateString);
 			return "choose-route";
 		}
 

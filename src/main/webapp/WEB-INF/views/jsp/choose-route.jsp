@@ -19,9 +19,15 @@
             <!-- Style CSS -->
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/index-style.css">
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/choose-route.css">
-            <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/jquery.autocomplete.css">
-            <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/core/datepicker/css/datepicker.css">
-            
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.13.0/themes/prism.min.css">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/icon.min.css">
+            <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/calendar.style.css" />
+            <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/ui.css" />
+            <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/pignose.calendar.min.css" />
+
             <title>TicketsO | Bus Online Booking Services</title>
 
             <link rel="icon" type="image/png" href="img/favicon.png">
@@ -39,35 +45,6 @@
                 gtag('config', 'UA-53776455-15');
             </script>
 
-            <script>
-                $(function() {
-                    'use strict';
-                    var nowTemp = new Date();
-                    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-
-                    var checkin = $('#timeCheckIn').datepicker({
-                        onRender: function(date) {
-                            return date.valueOf() < now.valueOf() ? 'disabled' : '';
-                        }
-                    }).on('changeDate', function(ev) {
-                        if (ev.date.valueOf() > checkout.date.valueOf()) {
-                            var newDate = new Date(ev.date)
-                            newDate.setDate(newDate.getDate() + 1);
-                            checkout.setValue(newDate);
-                        }
-                        checkin.hide();
-                        //$('#timeCheckOut')[0].focus();
-                    }).data('datepicker');
-                    var checkout = $('#timeCheckOut').datepicker({
-                        onRender: function(date) {
-                            return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
-                        }
-                    }).on('changeDate', function(ev) {
-                        checkout.hide();
-                    }).data('datepicker');
-                });
-            </script>
-
         </head>
 
         <body data-spy="scroll" data-offset="70">
@@ -79,7 +56,7 @@
             <!-- End Preloader -->
 
             <!-- Navbar Area -->
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: relative;">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="https://themes.envytheme.com/encontro/" target="_blank">
                 Tickets<span>O</span><b>.</b>
@@ -120,7 +97,7 @@
             <!--End Space Area-->
 
             <!-- Header Section -->
-            <header id="header-route">
+            <header id="header-route" style="margin-top: 0px;">
                 <div class="container-route">
                     <div class="col-md-12 col-sm-12 col-xs-12 mt10 date-container ">
                         <div class="row header-row">
@@ -148,19 +125,19 @@
                         <form id="searchForm" class="form-inline" action="booking" method="POST">
                             <div class="form-group">
                                 <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
-                                <input onfocus="this.select();" onmouseup="return false;" id="departPlace" name="departPlace" type="text" class="ui-autocomplete-input location-search" placeholder="Gõ vào nơi đi" value="Sài Gòn">
+                                <input onfocus="this.select();" onmouseup="return false;" id="departPlace" name="departPlace" type="text" class="ui-autocomplete-input location-search" placeholder="Gõ vào nơi đi" value="${departure}">
                             </div>
                             <div class="form-group hidden-xs">
                                 <a href="#" class="switchButton">⇌</a>
                             </div>
                             <div class="form-group">
                                 <span class="ui-helper-hidden-accessible"></span>
-                                <input onfocus="this.select();" onmouseup="return false;" id="destination" name="destination" type="text" class="ui-autocomplete-input location-search" placeholder="Gõ vào nơi đến" accesskey="2" tabindex="2" autocomplete="off" value="B">
+                                <input onfocus="this.select();" onmouseup="return false;" id="destination" name="destination" type="text" class="ui-autocomplete-input location-search" placeholder="Gõ vào nơi đến" accesskey="2" tabindex="2" autocomplete="off" value="${destination}">
                             </div>
                             <div class="form-group departDate-fg">
                                 <i class="fa fa-caret-left" id="mbtPrevDate"></i>
                                 <i class="fa fa-caret-right" id="mbtNextDate"></i>
-                                <input data-provide="datepicker" id="timeCheckIn" class="form-control" readonly="" name="departDate" type="text" class="date calendar-search hasDatepicker" placeholder="Chọn ngày đi" accesskey="1" tabindex="3" value="27-10-2019">
+                                <input name="departDate" type="text" class="input-calendar form-group" placeholder="Chọn ngày đi" value="${dateDeparture}">
                                 <div class="form-group quick-date-select fr hidden-xs hidden-sm">
                                     <button id="btToday" type="button" class="fl btn btn-gray btn-today">Hôm nay</button>
                                     <button id="btTomorrow" type="button" class="fl btn btn-gray btn-tomorrow">
@@ -262,13 +239,15 @@
                                                             <span class="">${result.ableChair}</span> Ghế trống
                                                         </div>
                                                     </div>
-
+                                                    <div class="col-2 col-md-2 col-sm-3 col-xs-2">
+                                                        empty
+                                                    </div>
                                                     <div class="text-right pr0 col-md-3 col-sm-3 col-xs-2 col-lg-2">
                                                         <h6 data-value="${result.cost}" class="mt0 price 14">
                                                             ${result.cost} <small style="vertical-align: top;" class="unit-price-small">đ</small>
                                                         </h6>
                                                         <p style="margin:0;">
-                                                            <a id="" class="ticket-ac-btn btn-vxr-lg btn pull-right w100 hasSeat closed online-button" href="#04102019-00601410" title="Nhấp để đặt vé" onclick="ga('send', 'event', 'Đặt vé', 'click','Đặt vé tại Tuyến đường Sài Gòn đi Hà Nội nhà xe Tiến Tiến')">Chọn chỗ</a>
+                                                            <a id="" class="ticket-ac-btn btn-vxr-lg btn pull-right w100 hasSeat closed online-button" href="${pageContext.request.contextPath}/booking/${result.id}" title="Nhấp để đặt vé">Chọn chỗ</a>
                                                             <a style="display: none;" title="Nhấp để đóng lại" href="javascript:;" class="ticket-ac-btn btn btn-lg btn-vxr-gray-lg w100 open online-button">Đóng lại</a>
                                                         </p>
                                                     </div>
@@ -439,6 +418,102 @@
             <script src="${pageContext.request.contextPath}/resources/js/index.js "></script>
             <script src="${pageContext.request.contextPath}/resources/js/jquery.autocomplete.js "></script>
             <script src="${pageContext.request.contextPath}/resources/core/datepicker/js/bootstrap-datepicker.js"></script>;
+
+            <!------ Include the js for calendar poup ---------->
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.13.0/prism.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.13.0/components/prism-javascript.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.13.0/components/prism-typescript.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.13.0/components/prism-json.min.js"></script>
+            <script type="text/javascript" src="https://twemoji.maxcdn.com/2/twemoji.min.js?2.5"></script>
+            <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+            <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/pignose.calendar.full.min.js"></script>
+
+            <script>
+                $(function() {
+
+                    function onSelectHandler(date, context) {
+                        /**
+                         * @date is an array which be included dates(clicked date at first index)
+                         * @context is an object which stored calendar interal data.
+                         * @context.calendar is a root element reference.
+                         * @context.calendar is a calendar element reference.
+                         * @context.storage.activeDates is all toggled data, If you use toggle type calendar.
+                         * @context.storage.events is all events associated to this date
+                         */
+
+                        var $element = context.element;
+                        var $calendar = context.calendar;
+                        var $box = $element.siblings('.box').show();
+                        var text = 'You selected date ';
+
+                        if (date[0] !== null) {
+                            text += date[0].format('YYYY-MM-DD');
+                        }
+
+                        if (date[0] !== null && date[1] !== null) {
+                            text += ' ~ ';
+                        } else if (date[0] === null && date[1] == null) {
+                            text += 'nothing';
+                        }
+
+                        if (date[1] !== null) {
+                            text += date[1].format('YYYY-MM-DD');
+                        }
+
+                        $box.text(text);
+                    }
+
+                    function onApplyHandler(date, context) {
+                        /**
+                         * @date is an array which be included dates(clicked date at first index)
+                         * @context is an object which stored calendar interal data.
+                         * @context.calendar is a root element reference.
+                         * @context.calendar is a calendar element reference.
+                         * @context.storage.activeDates is all toggled data, If you use toggle type calendar.
+                         * @context.storage.events is all events associated to this date
+                         */
+
+                        var $element = context.element;
+                        var $calendar = context.calendar;
+                        var $box = $element.siblings('.box').show();
+                        var text = 'You applied date ';
+
+                        if (date[0] !== null) {
+                            text += date[0].format('YYYY-MM-DD');
+                        }
+
+                        if (date[0] !== null && date[1] !== null) {
+                            text += ' ~ ';
+                        } else if (date[0] === null && date[1] == null) {
+                            text += 'nothing';
+                        }
+
+                        if (date[1] !== null) {
+                            text += date[1].format('YYYY-MM-DD');
+                        }
+
+                        $box.text(text);
+                    }
+
+                    // Input Calendar
+                    $('.input-calendar').pignoseCalendar({
+                        apply: onApplyHandler,
+                        buttons: true, // It means you can give bottom button controller to the modal which be opened when you click.
+                        format: 'DD-MM-YYYY',
+                    });
+
+                    $(".ui-datepicker-trigger").click(function() {
+                        (document.getElementsByClassName("input-calendar")[0]).click();
+                        console.log(a);
+
+                    });
+
+                    // This use for DEMO page tab component.
+                    $('.menu .item').tab();
+                });
+            </script>
         </body>
 
         </html>

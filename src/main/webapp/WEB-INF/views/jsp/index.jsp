@@ -20,6 +20,14 @@
             <title>TicketsO | Bus Online Booking Services</title>
 
             <link rel="icon" type="image/png" href="img/favicon.png">
+            <!-- Style CSS -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.13.0/themes/prism.min.css">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/icon.min.css">
+            <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/calendar.style.css" />
+            <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/ui.css" />
+            <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/pignose.calendar.min.css" />
 
             <!-- Global site tag (gtag.js) - Google Analytics -->
             <script async src="https://www.googletagmanager.com/gtag/js?id=UA-53776455-15"></script>
@@ -39,9 +47,6 @@
             <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
             <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
             <script>
-                $(function() {
-                    $("#datepicker").datepicker();
-                });
             </script>
         </head>
 
@@ -69,7 +74,20 @@
                             <li class="nav-item"> <a class="nav-link" href="#features">Features</a></li>
                             <li class="nav-item"> <a class="nav-link" href="#about-us">About Us</a></li>
                             <li class="nav-item"> <a class="nav-link" href="#contact">Contact</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="http://localhost:9999/TicketsO/TicketInfo">Tickets</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="${pageContext.request.contextPath}/TicketInfo">Tickets</a></li>
+                            <li class="nav-item">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                             
+                                            </button>
+                                    <div class="dropdown-menu">
+                                        <h6 class="dropdown-header">Dropdown header</h6>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                    </div>
+
+                                </div>
+                            </li>
                         </ul>
 
                         <div class="others-options">
@@ -198,9 +216,6 @@
                             </ul>
                             <!-- Tab panes -->
                             <div class="tab-content">
-
-                                <p>Date: <input type="text" id="datepicker"></p>
-
                                 <div role="tabpanel" class="tab-pane fade" id="saigon">
                                     <div class="clearfix fix-col">
                                         <div class="col-md-6 pl0 pr0">
@@ -208,7 +223,7 @@
                                                 <li>
                                                     <a href="/vi-VN/ve-xe-khach-tu-sai-gon-di-ha-noi-129t1241.html"><span class="route fl"><small>Sài Gòn →</small> Hà Nội</span></a>
                                                     <span class="price fl">900.000 ₫/vé</span>
-                                                    <input id="datepicker" type="text">
+                                                    <input class="input-calendar" type="hidden">
                                                     <button type="button" class="ui-datepicker-trigger">Chọn ngày</button>
                                                 </li>
 
@@ -716,6 +731,102 @@
             <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
             <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
             <!------ Include the above in your HEAD tag ---------->
+
+            <!------ Include the js for calendar poup ---------->
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.13.0/prism.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.13.0/components/prism-javascript.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.13.0/components/prism-typescript.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.13.0/components/prism-json.min.js"></script>
+            <script type="text/javascript" src="https://twemoji.maxcdn.com/2/twemoji.min.js?2.5"></script>
+            <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+            <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/pignose.calendar.full.min.js"></script>
+
+            <script>
+                $(function() {
+
+                    function onSelectHandler(date, context) {
+                        /**
+                         * @date is an array which be included dates(clicked date at first index)
+                         * @context is an object which stored calendar interal data.
+                         * @context.calendar is a root element reference.
+                         * @context.calendar is a calendar element reference.
+                         * @context.storage.activeDates is all toggled data, If you use toggle type calendar.
+                         * @context.storage.events is all events associated to this date
+                         */
+
+                        var $element = context.element;
+                        var $calendar = context.calendar;
+                        var $box = $element.siblings('.box').show();
+                        var text = 'You selected date ';
+
+                        if (date[0] !== null) {
+                            text += date[0].format('YYYY-MM-DD');
+                        }
+
+                        if (date[0] !== null && date[1] !== null) {
+                            text += ' ~ ';
+                        } else if (date[0] === null && date[1] == null) {
+                            text += 'nothing';
+                        }
+
+                        if (date[1] !== null) {
+                            text += date[1].format('YYYY-MM-DD');
+                        }
+
+                        $box.text(text);
+                    }
+
+                    function onApplyHandler(date, context) {
+                        /**
+                         * @date is an array which be included dates(clicked date at first index)
+                         * @context is an object which stored calendar interal data.
+                         * @context.calendar is a root element reference.
+                         * @context.calendar is a calendar element reference.
+                         * @context.storage.activeDates is all toggled data, If you use toggle type calendar.
+                         * @context.storage.events is all events associated to this date
+                         */
+
+                        var $element = context.element;
+                        var $calendar = context.calendar;
+                        var $box = $element.siblings('.box').show();
+                        var text = 'You applied date ';
+
+                        if (date[0] !== null) {
+                            text += date[0].format('YYYY-MM-DD');
+                        }
+
+                        if (date[0] !== null && date[1] !== null) {
+                            text += ' ~ ';
+                        } else if (date[0] === null && date[1] == null) {
+                            text += 'nothing';
+                        }
+
+                        if (date[1] !== null) {
+                            text += date[1].format('YYYY-MM-DD');
+                        }
+
+                        $box.text(text);
+                    }
+
+                    // Input Calendar
+                    $('.input-calendar').pignoseCalendar({
+                        apply: onApplyHandler,
+                        buttons: true, // It means you can give bottom button controller to the modal which be opened when you click.
+                        format: 'YYYY-MM-DD',
+                    });
+
+                    $(".ui-datepicker-trigger").click(function() {
+                        (document.getElementsByClassName("input-calendar")[0]).click();
+                        console.log(a);
+
+                    });
+
+                    // This use for DEMO page tab component.
+                    $('.menu .item').tab();
+                });
+            </script>
         </body>
 
         </html>
