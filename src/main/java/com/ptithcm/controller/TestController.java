@@ -72,4 +72,24 @@ public class TestController {
 	public String test3() {
 		return "tickets-info";
 	}
+	
+	@RequestMapping("/test/4")
+	public String test4() {
+		return "dashboard/buses-schedule/bookings";
+	}
+	
+	@RequestMapping("/test/5")
+	public String test5() {
+		return "dashboard/buses-schedule/reports";
+	}
+	
+	@RequestMapping("/test/6")
+	public String test6() {
+		return "dashboard/buses-schedule/stops-lines";
+	}
+	
+	@RequestMapping("/test/7")
+	public String test7() {
+		return "dashboard/buses-schedule/time-table";
+	}
 }

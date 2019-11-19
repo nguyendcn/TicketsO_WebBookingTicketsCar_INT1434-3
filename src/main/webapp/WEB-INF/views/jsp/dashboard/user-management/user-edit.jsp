@@ -71,7 +71,7 @@
                             <div class="dropdown profile-element">
                                 <a data-toggle="dropdown" class="dropdown-toggle" href="http://trials.vevs.website/nguyenne/index.php?controller=pjCmsUsers&amp;action=pjActionUpdate&amp;id=1#">
                                     <span class="clear"> 
-                                <span class="block m-t-xs"> <strong class="font-bold">nguyen</strong></span>
+                                <span class="block m-t-xs"> <strong class="font-bold">${current_user}</strong></span>
                                     <span class="text-muted text-xs block">Super User <b class="caret"></b></span>
                                     </span>
                                 </a>
@@ -311,7 +311,7 @@
                                     <div class="form-group">
                                         <div class="col-sm-6 col-md-7 col-sm-offset-2">
                                             <button action="submit" class="btn btn-primary btn-lg">Save</button>
-                                            <a class="btn btn-white btn-lg pull-right" href="/TicketO/dashboard/users/show">Cancel</a>
+                                            <a class="btn btn-white btn-lg pull-right" href="${pageContext.request.contextPath}/dashboard/users/show">Cancel</a>
                                         </div>
                                     </div>
                                 </form>
@@ -330,7 +330,7 @@
                     myLabel.sp_err_desc = "You've entered wrong password for your account.";
                 </script>
                 <div class="footer">
-                    <div>Copyright <strong><a href="https://www.vevs.com/" target="_blank">VEVS.com</a></strong> Â© 2019</div>
+                    <div>Copyright <strong><a href="https://www.vevs.com/" target="_blank">DCN</a></strong> © 2019</div>
                 </div>
             </div>
         </div>

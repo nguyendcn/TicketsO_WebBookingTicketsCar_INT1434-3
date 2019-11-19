@@ -73,7 +73,7 @@
                                 </a>
                                 <ul class="dropdown-menu animated fadeInRight m-t-xs">
                                     <li><a href="http://trials.vevs.website/nguyenne/index.php?controller=pjCmsAuth&amp;action=pjActionProfile">Profile</a></li>
-                                    <li><a href="http://trials.vevs.website/nguyenne/index.php?controller=pjCmsAuth&amp;action=pjActionLogout">Logout</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/dashboard/user/logout">Logout</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -206,7 +206,7 @@
                                     <a href="http://trials.vevs.website/nguyenne/index.php?controller=pjBusSchedule&amp;action=pjActionDashboard#" class="bar-top-anchor right-sidebar-toggle-main">Help Center</a>
                                 </div>
                                 <div class="bar-top-section">
-                                    <a href="http://trials.vevs.website/nguyenne/index.php?controller=pjCmsAuth&amp;action=pjActionLogout" class="bar-top-anchor">Logout</a>
+                                    <a href="${pageContext.request.contextPath}/dashboard/user/logout" class="bar-top-anchor">Logout</a>
                                 </div>
                             </div>
                         </div>

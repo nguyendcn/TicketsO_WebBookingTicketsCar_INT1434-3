@@ -17,7 +17,11 @@ public class SystemController {
 	public String mainDashboard(ModelMap modelMap, HttpSession httpSession) {
 		
 		String current_user = (String)httpSession.getAttribute("current_user");
-		if(current_user != null) {
+		System.out.println("current-user|" + current_user + "|");
+		if(current_user == null) {
+			return "dashboard/user/login";
+			
+		}else {
 			modelMap.addAttribute("user", current_user);
 		}
 		return "dashboard/mainDashboard";
@@ -28,6 +32,14 @@ public class SystemController {
 		return "dashboard/user/login";
 	}
 
+	
+	@RequestMapping("/user/logout")
+	@Transactional
+	public String userLogout(HttpSession httpSession) {
+		httpSession.setAttribute("current_user", null);
+		
+		return "dashboard/user/login";
+	}
 	
 }
 

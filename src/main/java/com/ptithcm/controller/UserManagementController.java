@@ -107,12 +107,10 @@ public class UserManagementController {
 		user.setRole(role);
 		
 		System.out.println(Integer.parseInt(request.getParameter("role_id")));
-		//System.out.println(role.getId());
-		System.out.println(user.toString());
 		
 		userServiceImp.save(user);
 		
-		return "dashboard/user-management/user-list";
+		return "redirect:show";
 	}
 	
 	@RequestMapping("/show/getUserByQuantity")

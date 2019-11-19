@@ -73,7 +73,7 @@
                                 <div class="dropdown profile-element">
                                     <a data-toggle="dropdown" class="dropdown-toggle" href="http://trials.vevs.website/nguyenne/index.php?controller=pjCmsUsers&amp;action=pjActionCreate#">
                                         <span class="clear"> 
-                                <span class="block m-t-xs"> <strong class="font-bold">nguyen</strong></span>
+                                <span class="block m-t-xs"> <strong class="font-bold">${current_user}</strong></span>
                                         <span class="text-muted text-xs block">Super User <b class="caret"></b></span>
                                         </span>
                                     </a>
