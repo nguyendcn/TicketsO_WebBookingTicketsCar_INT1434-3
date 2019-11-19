@@ -75,15 +75,13 @@
                 <body>
                     <div class="container">
                         <div class="booking-expand clearfix">
-                            <a href="#" data-lang="en">English</a>
-                            <a href="#" data-lang="vi">Vietnam</a>
                             <form:form action="checkout" method="POST" class="frmSeatSelection form-horizontal col-12 col-md-12 col-xs-12" modelAttribute="bookingInfo">
                                 <form:hidden path="id_tour" val="${bookingInfo.id_tour}" />
                                 <div class="seat-template-table table-noborder mb0">
                                     <div class="title-seat">
-                                        <div class="col-md-4 col-lg-4" style="position:relative;">1 - CHỌN CHỖ <span class="btn btn-close-road hidden-lg hidden-md"><img src="https://storage.googleapis.com/fe-production/images/closed-white.svg" alt=""></span></div>
-                                        <div class="col-md-4 col-lg-4">2 - CHỌN ĐIỂM ĐI/ĐIỂM ĐẾN</div>
-                                        <div class="col-md-4 col-lg-4">3 - THÔNG TIN KHÁCH HÀNG <span class="btn btn-close-road btn-close-road-phone"><img src="https://storage.googleapis.com/fe-production/images/closed.svg" alt=""></span></div>
+                                        <div class="col-md-4 col-lg-4" style="position:relative;">1 - <s:message code="bd.chooseseat" /> <span class="btn btn-close-road hidden-lg hidden-md"><img src="https://storage.googleapis.com/fe-production/images/closed-white.svg" alt=""></span></div>
+                                        <div class="col-md-4 col-lg-4">2 - <s:message code="bd.chooseplace" /></div>
+                                        <div class="col-md-4 col-lg-4">3 - <s:message code="bd.customerinfo" /> <span class="btn btn-close-road btn-close-road-phone"><img src="https://storage.googleapis.com/fe-production/images/closed.svg" alt=""></span></div>
                                     </div>
                                     <div class="detail-booking" style="height: 477px; min-height: 370px;">
                                         <div class="col-md-4 col-lg-4  seat-template-col" style="margin-bottom: 100px; min-height: 370px;">
@@ -93,19 +91,19 @@
                                                         <td>
                                                             <p class="mb0">
                                                             </p>
-                                                            <div class="ml5" style="display: inline-block;width: 15px;height: 15px;border: 1px solid #919191;float:left;margin-right:5px;background-color:#fff;"></div> <span style="float:left;">Ghế trống</span>
+                                                            <div class="ml5" style="display: inline-block;width: 15px;height: 15px;border: 1px solid #919191;float:left;margin-right:5px;background-color:#fff;"></div> <span style="float:left;"><s:message code="bd.seat.able" /></span>
                                                             <p></p>
                                                         </td>
                                                         <td>
                                                             <p class="mb0">
                                                             </p>
-                                                            <div class="ml5" style="display: inline-block;width: 15px;height: 15px;border: 1px solid #CFCFCF;background-color:#CFCFCF;float:left;margin-right:5px;"></div> <span style="float:left;">Ghế không bán</span>
+                                                            <div class="ml5" style="display: inline-block;width: 15px;height: 15px;border: 1px solid #CFCFCF;background-color:#CFCFCF;float:left;margin-right:5px;"></div> <span style="float:left;"><s:message code="bd.seat.notsell" /></span>
                                                             <p></p>
                                                         </td>
                                                         <td>
                                                             <p class="mb0">
                                                             </p>
-                                                            <div class="ml5" style="display: inline-block;width: 15px;height: 15px;border: 1px solid  red;background-color:red;float:left;margin-right:5px;"></div> <span style="float:left;">Đang chọn</span>
+                                                            <div class="ml5" style="display: inline-block;width: 15px;height: 15px;border: 1px solid  red;background-color:red;float:left;margin-right:5px;"></div> <span style="float:left;"><s:message code="bd.seat.choosing" /></span>
                                                             <p></p>
                                                         </td>
                                                     </tr>
@@ -233,7 +231,7 @@
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                                <div class="coach-name">Tầng 2</div>
+                                                <div class="coach-name"><s:message code="bd.seat.floor2" /></div>
 
                                             </div>
                                             <div class="cd-sodoghe mt10" style="margin-top:10px;margin-top:10px;">
@@ -361,18 +359,22 @@
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                                <div class="coach-name">Tầng 1</div>
+                                                <div class="coach-name"><s:message code="bd.seat.floor1" /></div>
 
                                             </div>
                                         </div>
                                         <div class="col-md-4 col-lg-4 td-info-detail hidden-xs" style="padding-top: 10px; border-right: 1px solid rgb(238, 238, 238) !important; min-height: 370px;">
                                             <div class="container-fluid customer-info-title hidden-lg hidden-md hidden-sm">
-                                                <h4>2. CHỌN ĐIỂM ĐI/ĐIỂM ĐẾN →</h4>
+                                                <h4>2. <s:message code="bd.chooseplace" /> →</h4>
                                             </div>
                                             <div class="detail-customer-info">
                                                 <ul class="nav nav-tabs">
-                                                    <li class="active"><a data-toggle="tab" href="#fromstart" aria-expanded="true">Điểm đi</a></li>
-                                                    <li class=""><a data-toggle="tab" href="#toend" aria-expanded="false">Điểm đến</a></li>
+                                                    <li class="active">
+                                                        <a data-toggle="tab" href="#fromstart" aria-expanded="true"><s:message code="bd.place.des" /></a>
+                                                    </li>
+                                                    <li class="">
+                                                        <a data-toggle="tab" href="#toend" aria-expanded="false"><s:message code="bd.place.dep" /></a>
+                                                    </li>
 
                                                 </ul>
                                                 <div class="tab-content">
@@ -466,18 +468,17 @@
                                                 <div class="detail-customer-info">
                                                     <div class="form-group CustomerFullName">
                                                         <div class="col-md-12 col-sm-12 pl0 pr0">
-                                                            <label class="col-md-12 pl0 pr0 col-sm-3 control-label text-left multiple-info-note" style="display: none;">Thông tin hành khách 1:</label>
-                                                            <label class="col-md-12 pl0 pr0 col-sm-3 control-label text-left hidden-xs">Họ tên <span style="color:red;">*</span>:</label>
-                                                            <form:input path="name" id="cfn" name="CustomerFullName" class="form-control input-vxr" placeholder="Họ tên" data-toggle="popover" data-content="Họ tên không hợp lệ" data-placement="top" />
+                                                            <label class="col-md-12 pl0 pr0 col-sm-3 control-label text-left hidden-xs"><s:message code="bd.ci.name" /> <span style="color:red;">*</span>:</label>
+                                                            <s:message code="bd.ci.name.place" var="placeFullname" />
+                                                            <form:input path="name" id="cfn" name="CustomerFullName" class="form-control input-vxr" placeholder='${placeFullname}' data-toggle="popover" data-content="Họ tên không hợp lệ" data-placement="top" />
                                                             <p id="name-error" class="error-ms">Họ tên không hợp lệ</p>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-md-12 col-sm-12 pl0 pr0">
-                                                            <label class="col-md-8 pl0 pr0 control-label text-left hidden-xs">Số điện thoại người đi <span style="color:red;">*</span>:</label>
-
-                                                            <form:input path="numberPhone" id="cp" name="CustomerPhone" class="form-control input-vxr error-check" placeholder="Số điện thoại Việt Nam của người đi: 0912345678" data-toggle="popover" data-content="Vui lòng nhập đúng định dạng (VD: 0912345678)" data-placement="left"
-                                                            />
+                                                            <label class="col-md-8 pl0 pr0 control-label text-left hidden-xs"><s:message code="bd.ci.numberphone" /> <span style="color:red;">*</span>:</label>
+                                                            <s:message code="bd.ci.numberphone.place" var="placePhone" />
+                                                            <form:input path="numberPhone" id="cp" name="CustomerPhone" class="form-control input-vxr error-check" placeholder='${placePhone}' data-toggle="popover" data-content="Vui lòng nhập đúng định dạng (VD: 0912345678)" data-placement="left" />
                                                             <p id="phone-error" class="error-ms" style="display: none;">Vui lòng nhập đúng định dạng (VD: 0912345678)</p>
                                                         </div>
                                                     </div>
@@ -491,9 +492,9 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-md-12 col-sm-12 pl0 pr0">
-                                                            <label for="inputnote3" class="col-md-12 pl0 pr0 col-sm-3 control-label text-left hidden-xs">Ghi Chú:</label>
-
-                                                            <form:textarea path="description" id="note" name="note" type="text" class="form-control input-vxr" placeholder="Các yêu cầu đặc biệt không thể được đảm bảo - nhưng nhà xe sẽ cố gắng hết sức để đáp ứng nhu cầu của bạn." />
+                                                            <label for="inputnote3" class="col-md-12 pl0 pr0 col-sm-3 control-label text-left hidden-xs"><s:message code="bd.ci.note" />:</label>
+                                                            <s:message code="bd.ci.note.place" var="paceNote" />
+                                                            <form:textarea path="description" id="note" name="note" type="text" class="form-control input-vxr" placeholder='${placeNote}' />
                                                         </div>
                                                     </div>
 
@@ -507,14 +508,14 @@
                                         <div class="col-md-4 col-lg-4 col-xs-12 col-sm-4  detail-total">
                                             <div class="col-md-12 col-xs-12" style="min-height: 25px;padding: 0;">
                                                 <span style="float:left">
-                                                Số ghế:
+                                                    <s:message code="bd.bi.seatCode" />
                                             </span>
                                                 <form:hidden path="listSeat" class="seat-template-seat-code-hidden" />
                                                 <b style="float:right"><span class="seat-template-seat-code"></span></b>
                                             </div>
 
                                             <div class="col-md-12 col-xs-12" style="padding:0px;">
-                                                <span style="float:left">Tổng tiền:</span>
+                                                <span style="float:left"><s:message code="bd.bi.price" /></span>
                                                 <div style="float:right">
                                                     <span class="seat-template-old-total-fare" style="font-size: 14px; text-decoration: line-through; margin-right: 10px;"></span>
                                                     <h4 class="seat-template-total-fare amount" style="font-size:20px;color:red;">0</h4><small style="vertical-align: top; text-decoration: underline;color:red !important;" class="unit-price-small">đ</small>
@@ -523,11 +524,11 @@
                                         </div>
                                         <div class="col-md-4 col-lg-4 detail-review-route">
                                             <div class="col-md-12 col-xs-12" style="min-height: 25px;padding: 0;">
-                                                <span style="float:left">Điểm đi:</span>
+                                                <span style="float:left"><s:message code="bd.bi.dep" /></span>
                                                 <b class="rv-tran-from">Hồ Chí Minh</b>
                                             </div>
                                             <div class="col-md-12 col-xs-12" style="min-height: 25px;padding: 0;">
-                                                <span style="float:left">Điểm đến:</span>
+                                                <span style="float:left"><s:message code="bd.bi.des" /></span>
                                                 <b class="rv-tran-to">Hà Nội</b>
                                             </div>
                                         </div>
@@ -535,7 +536,7 @@
                                             <div class="form-group mb0">
                                                 <div class="col-md-12 col-sm-12 cont-container text-center hidden-xs">
                                                     <button id="sub-booking" type="submit" class="cont-btn btn btn-vxr-lg btn-vxr-lg-action">
-                                                Tiếp tục <i class="glyphicon glyphicon-chevron-right f14"></i>
+                                                        <s:message code="bd.btn.continute" /> <i class="glyphicon glyphicon-chevron-right f14"></i>
                                                 
                                             </button>
                                                     <script>
@@ -562,17 +563,6 @@
 
                         </div>
                     </div>
-
-                    <script>
-                        $("a[data-lang]").click(function() {
-                            var lang = $(this).attr("data-lang");
-                            console.log(lang);
-                            $.get("changelang/?language=" + lang, function() {
-                                location.reload();
-                                //alert(lang);
-                            });
-                        });
-                    </script>
 
                 </body>
 

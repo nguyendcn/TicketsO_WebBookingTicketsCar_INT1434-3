@@ -108,7 +108,7 @@
                                             <span></span>
                                             <span></span>
                                             <span></span>
-                                            <span></span> Book Now
+                                            <span></span> <s:message code="index.bookinghead" />
                                         </a>
                                     </li>
                                 </ul>
@@ -125,11 +125,11 @@
                             <div class="container">
                                 <div class="main-banner-content">
                                     <h3>
-                                        <a href="" class="typewrite" data-period="2000" data-type='[ "Booking your ticket easy", "Quckly for booking" ]'>
+                                        <a href="" class="typewrite" data-period="2000" data-type='[ "<s:message code="index.bannertxt1" />", "<s:message code="index.bannertxt2" />" ]'>
                                             <span class="wrap"></span>
                                         </a>
                                     </h3>
-                                    <h1>TicketsO | Bus Online Booking Services</h1>
+                                    <h1><s:message code="index.title" /></h1>
                                 </div>
                             </div>
                         </div>
@@ -143,11 +143,11 @@
                 <div id="features" class="features-area">
                     <div class="container">
                         <div class="section-title">
-                            <h2>Awesome Features</h2>
+                            <h2><s:message code="index.features" /></h2>
                             <ul>
-                                <li>One Click Booking</li>
-                                <li>Friendly Support</li>
-                                <li>Cheaper Tickets</li>
+                                <li><s:message code="index.features.title1" /></li>
+                                <li><s:message code="index.features.title2" /></li>
+                                <li><s:message code="index.features.title3" /></li>
                             </ul>
                             <span class="section-title-bg">Features</span>
                         </div>
@@ -158,7 +158,7 @@
                                 <div class="single-features">
                                     <img src="https://storage.googleapis.com/fe-production/svgIcon/static-icon-3.svg" alt="image">
 
-                                    <h3>5000+ Tickets Agency</h3>
+                                    <h3><s:message code="index.features.c1" /></h3>
                                 </div>
                             </div>
 
@@ -166,7 +166,7 @@
                                 <div class="single-features">
                                     <img src="https://storage.googleapis.com/fe-production/svgIcon/static-icon-4.svg" alt="image">
 
-                                    <h3>400+ Bus Station</h3>
+                                    <h3><s:message code="index.features.c2" /></h3>
                                 </div>
                             </div>
 
@@ -174,7 +174,7 @@
                                 <div class="single-features">
                                     <img src="https://storage.googleapis.com/fe-production/svgIcon/static-icon-2.svg" alt="image">
 
-                                    <h3>2000+ Bus Campany</h3>
+                                    <h3><s:message code="index.features.c3" /></h3>
                                 </div>
                             </div>
 
@@ -182,7 +182,7 @@
                                 <div class="single-features">
                                     <img src="https://storage.googleapis.com/fe-production/svgIcon/static-icon-1.svg" alt="image">
 
-                                    <h3>5000+ Route</h3>
+                                    <h3><s:message code="index.features.c4" /></h3>
                                 </div>
                             </div>
 
@@ -196,7 +196,7 @@
                 <div id="quick-book" class="about-us-area">
                     <div class="container">
                         <div class="section-title">
-                            <h2>Booking</h2>
+                            <h2><s:message code="index.booking" /></h2>
                             <span class="section-title-bg">Quick Booking</span>
                         </div>
                     </div>
@@ -210,8 +210,8 @@
                         </div>
                         <div class="content-inner">
                             <h3>
-                                <span>Booking bus tickets of popular routes from&nbsp;</span>
-                                <a href="" class="typewrite" data-period="2000" data-type='[ " Sai Gon", "  Ha Noi", " Da Nang" ]'>
+                                <span><s:message code="index.booking.headtext" />&nbsp;</span>
+                                <a href="" class="typewrite" data-period="2000" data-type='[ " <s:message code="index.booking.to1" />", "  <s:message code="index.booking.to2" />", " <s:message code="index.booking.to3" />" ]'>
                                     <span class="wrap"></span>
                                 </a>
                                 <span>|</span>
@@ -239,7 +239,7 @@
                                                             <span class="price fl">900.000 ₫/vé</span>
                                                             <input class="input-calendar" type="hidden" name="departDate">
                                                             <button type="submit"></button>
-                                                            <button type="button" class="ui-datepicker-trigger">Chọn ngày</button>
+                                                            <button type="button" class="ui-datepicker-trigger"><s:message code="index.booking.chooseday" /></button>
                                                         </form>
                                                     </li>
 
@@ -624,7 +624,7 @@
                 <div id="about-us" class="about-us-area">
                     <div class="container">
                         <div class="section-title">
-                            <h2>Bus station</h2>
+                            <h2><s:message code="index.busstation" /></h2>
                             <span class="section-title-bg">Bus station</span>
                         </div>
                     </div>
@@ -634,7 +634,7 @@
                                 <div class="single-features">
                                     <img src="https://storage.googleapis.com/fe-production/images/bx-mien-dong.jpg" alt="image">
 
-                                    <h3>Mien Dong Station</h3>
+                                    <h3><s:message code="index.busstation.s1" /></h3>
                                 </div>
                             </div>
 
@@ -642,7 +642,7 @@
                                 <div class="single-features">
                                     <img src="https://storage.googleapis.com/fe-production/images/bx-nuoc-ngam.jpg" alt="image">
 
-                                    <h3>Nuoc Ngam Station</h3>
+                                    <h3><s:message code="index.busstation.s2" /></h3>
                                 </div>
                             </div>
 
@@ -650,7 +650,7 @@
                                 <div class="single-features">
                                     <img src="https://kenhhomestay.com/wp-content/uploads/2019/06/ben-xe-giap-bat.jpg" height="243" alt="image">
 
-                                    <h3>Giap Bat Station</h3>
+                                    <h3><s:message code="index.busstation.s3" /></h3>
                                 </div>
                             </div>
 
@@ -658,7 +658,7 @@
                                 <div class="single-features">
                                     <img src="https://storage.googleapis.com/fe-production/images/bx-my-dinh.jpg" alt="image">
 
-                                    <h3>My Dinh Station</h3>
+                                    <h3><s:message code="index.busstation.s4" /></h3>
                                 </div>
                             </div>
 
@@ -666,7 +666,7 @@
                                 <div class="single-features">
                                     <img src="https://megabus.vn/wp-content/uploads/2018/12/bx-mien-tay_megabus-5-750x410.jpg" alt="image">
 
-                                    <h3>Mien Tay Station</h3>
+                                    <h3><s:message code="index.busstation.s5" /></h3>
                                 </div>
                             </div>
 
@@ -674,7 +674,7 @@
                                 <div class="single-features">
                                     <img src="https://storage.googleapis.com/fe-production/images/bx-gia-lam.jpg" alt="image">
 
-                                    <h3>Gia Lam Station</h3>
+                                    <h3><s:message code="index.busstation.s6" /></h3>
                                 </div>
                             </div>
 
@@ -687,7 +687,7 @@
                 <div id="contact" class="contact-area">
                     <div class="container">
                         <div class="section-title">
-                            <h2>Contact</h2>
+                            <h2><s:message code="index.contact" /></h2>
                             <span class="section-title-bg">About Us</span>
                         </div>
                     </div>

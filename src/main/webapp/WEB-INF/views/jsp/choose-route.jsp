@@ -64,28 +64,6 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto ml-auto">
-                            <li class="nav-item"> <a class="nav-link" href="#home">Home</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="#features">Features</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="#about-us">About Us</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="#contact">Contact</a></li>
-                        </ul>
-
-                        <div class="others-options">
-                            <ul class="navbar-nav mr-auto ml-auto">
-                                <li class="nav-item btn-booking">
-                                    <a href="#quick-book">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span> Book Now
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
             </nav>
             <!-- End Navbar -->
@@ -103,14 +81,7 @@
                         <div class="row header-row">
                             <div class="col-md-6 hidden-sm hidden-xs">
                                 <h1 class="title-text-route">
-                                    <span class="hidden-xs hidden-sm">Vé còn xe từ</span> Sài Gòn đến Hà Nội </h1>
-                            </div>
-                            <div class="col-md-6 hidden-sm hidden-xs">
-                                <h6 class="mt0 route-title hidden-sm hidden-xs route-title-bus-ticket">
-                                    <span class="mt0 mb0 text-gray"><a href="/">Vé xe khách</a> &gt;<a href="/vi-VN/ve-xe-khach-tu-sai-gon-di-ha-noi-129t1241.html">xe đi Hà Nội từ Sài Gòn </a></span>
-
-                                </h6>
-                                <input id="routeName" type="hidden" value="Sài Gòn - Hà Nội">
+                                    <span class="hidden-xs hidden-sm">Vé còn xe từ</span> ${departure} đến ${destination} </h1>
                             </div>
                         </div>
                     </div>
