@@ -2,6 +2,8 @@ package com.ptithcm.dao;
 
 import java.util.List;
 
+import javax.persistence.Query;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,9 +59,11 @@ public class RouteDAOImp implements DAOBase<Route>{
 				+ "from Route r\n"
 				+ "where r.departure = '" + dep + "' And r.destination = '" + des + "'";
 		
+		
 		Integer result= -1;
 		try {
 			result = session.createQuery(query, Integer.class).getSingleResult();
+			
 		}catch(Exception ex) {
 			System.out.println(ex.getMessage());
 		}

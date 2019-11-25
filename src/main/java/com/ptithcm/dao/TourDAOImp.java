@@ -138,9 +138,11 @@ public class TourDAOImp implements DAOBase<Tour>{
 		if(dateCompare == "")
 			return new ArrayList<Tour>();
 		
+		System.out.println("Date compare: " + dateCompare + "|Start: " + start + "|End: " + end);
+		
 		String queryString = "select t from Tour t, Route r  where t.route.id = r.id and \n" + 
 				"((r.departure = '" + start + "' and r.destination = '" + end + 
-				"') and (t.departureDate >= '"+ dateCompare +"'))";
+				"') and (t.departureDate = '"+ dateCompare +"'))";
 		
 		return  session.createQuery(queryString, Tour.class).getResultList();
 	
@@ -162,7 +164,7 @@ public class TourDAOImp implements DAOBase<Tour>{
 			if(date.compareTo(sdf.parse(arrDate[0])) == 0)
 				return (strDate + " " + arrDate[1]);
 			else
-				return arrDate[0];
+				return strDate;
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -234,9 +234,9 @@
                                                     <li>
                                                         <form action="booking" method="POST">
                                                             <input type="hidden" name="departPlace" value="Sài Gòn">
-                                                            <input type="hidden" name="destination" value="B">
-                                                            <a href="booking?"><span class="route fl"><small>Sài Gòn →</small> Hà Nội</span></a>
-                                                            <span class="price fl">900.000 ₫/vé</span>
+                                                            <input type="hidden" name="destination" value="Thái Bình">
+                                                            <span class="route fl"><small>Sài Gòn →</small> Thái Bình</span>
+                                                            <span class="price fl">720.000 ₫/vé</span>
                                                             <input class="input-calendar" type="hidden" name="departDate">
                                                             <button type="submit"></button>
                                                             <button type="button" class="ui-datepicker-trigger"><s:message code="index.booking.chooseday" /></button>

@@ -92,6 +92,7 @@ public class BookingController {
 
 
 		int idRoute = rsi.getIdByPlace(start, end);
+		System.out.println("id route: " + idRoute);
 
 		if (idRoute == -1) {
 			return "choose-route";
@@ -269,6 +270,22 @@ public class BookingController {
 		
 	}
 	
+	public String setupContetnMail(BookingSuccessInfo bsi) {
+		String content = "Xin Chào " + bsi.getPassengerName() +"\n";
+		content +=("Bạn đã đặt vé thành công " + bsi.getlTicket().size() + " vé. Từ " + bsi.getDeparture() + "  đến  " + bsi.getDestiantion()
+		+ "  vào ngày  " + bsi.getDepDate() + "\n");
+		content +=("Thông tin vé:\n");
+		
+		for(int i =0; i< bsi.getlTicket().size(); i++) {
+			content += ("Mã vé: " + (bsi.getlTicket()).get(i).getId() + "   Chỗ ngồi:" + (bsi.getlTicket()).get(i).getSeatCode() + "\n");
+		}
+	
+		content += ("Thôn tin liên hệ: Nhà xe: " + bsi.getCompanyName() + " hotline: " + bsi.getCompanyHotline());
+	
+		
+		return content;
+	}
+	
 	public void sendMailToCustomer(BookingSuccessInfo bsi, Customer customer) {
 		try {
 			MimeMessage mail = jms.createMimeMessage();
@@ -279,7 +296,7 @@ public class BookingController {
 			helper.setTo(customer.getEmail());
 			helper.setReplyTo("noreply@ticketso.com", "TicketsO");
 			helper.setSubject("TicketsO-Booking Success");
-			helper.setText(bsi.toString(), true);
+			helper.setText(setupContetnMail(bsi), true);
 			
 			jms.send(mail);
 			
