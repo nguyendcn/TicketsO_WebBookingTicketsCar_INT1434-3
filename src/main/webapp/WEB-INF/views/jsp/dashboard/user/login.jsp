@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,22 +28,30 @@
 	<div class="container">
 		<div class="container-login">
 			<div class="wrap-login">
-				<form action="" class="login-form p-l-55 p-r-55 p-t-178" method="post">
+				<form:form action="checkLogin" class="login-form p-l-55 p-r-55 p-t-178" method="post" modelAttribute="userInfo">
 					<span class="login-form-title"> Sign In </span>
 					
 					<span id="result-login"></span>
 					
 					
+					<span>${errorLogin}</span>
 					<div class="wrap-input validate-input m-b-16"
 						data-validate="Please enter username">
-						<input class="input" type="text" id="username"
+				
+						<form:input class="input" path="username"
 							placeholder="Username" /> 
 						<span class="focus-input"></span>
+						<form:errors path="username"/>
+						
 					</div>
 
 					<div class="wrap-input validate-input"  data-validate="Please enter password">
-						<input class="input" type="password" id="password"
-							placeholder="Password" /> <span class="focus-input"></span>
+						
+						<form:input class="input" path="password"
+							placeholder="Password" /> 
+							<span class="focus-input"></span>
+							<form:errors path="password"/>
+							
 					</div>
 					
 					<div class="text-right p-t-13 p-b-23">
@@ -51,7 +60,7 @@
 					</div>
 
 					<div class="container-login-form-btn">
-						<span id="btn-check-login" class="login-form-btn">Sign In</span>
+						<button type="submit" class="login-form-btn">Sign In</button>
 						
 					</div>
 
@@ -59,7 +68,7 @@
 						<span class="txt1 p-b-9"> Don't have an account? </span> <a
 							href="#" class="txt3"> Sign up now </a>
 					</div>
-				</form>
+				</form:form>
 			</div>
 		</div>
 	</div>

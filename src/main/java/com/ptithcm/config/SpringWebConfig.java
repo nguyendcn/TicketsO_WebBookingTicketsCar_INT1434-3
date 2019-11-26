@@ -13,7 +13,7 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableWebMvc
 @Configuration
 @ComponentScan({ "com.ptithcm.controller", "com.ptithcm.dao", "com.ptithcm.entities",
-	"com.ptithcm.service", "com.ptithcm.exception", "com.ptithcm.validator" })
+	"com.ptithcm.service", "com.ptithcm.exception", "com.ptithcm.models" })
 public class SpringWebConfig extends WebMvcConfigurerAdapter {
 
 	@Override
@@ -30,11 +30,11 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter {
 		return viewResolver;
 	}
 
-	@Bean
-	public ResourceBundleMessageSource messageSource() {
-		ResourceBundleMessageSource rb = new ResourceBundleMessageSource();
-		rb.setBasenames(new String[] { "messages/messages", "messages/validation" });
-		return rb;
-	}
+	/*
+	 * @Bean public ResourceBundleMessageSource messageSource() {
+	 * ResourceBundleMessageSource rb = new ResourceBundleMessageSource();
+	 * rb.setBasenames(new String[] { "messages/messages", "messages/validation" });
+	 * return rb; }
+	 */
 
 }

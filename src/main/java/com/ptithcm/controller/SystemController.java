@@ -8,6 +8,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ptithcm.models.UserInfo;
+
 @Controller
 @RequestMapping("/dashboard")
 public class SystemController {
@@ -19,6 +21,7 @@ public class SystemController {
 		String current_user = (String)httpSession.getAttribute("current_user");
 		System.out.println("current-user|" + current_user + "|");
 		if(current_user == null) {
+			modelMap.addAttribute("userInfo", new UserInfo());
 			return "dashboard/user/login";
 			
 		}else {
@@ -35,9 +38,9 @@ public class SystemController {
 	
 	@RequestMapping("/user/logout")
 	@Transactional
-	public String userLogout(HttpSession httpSession) {
+	public String userLogout(HttpSession httpSession, ModelMap modelMap) {
 		httpSession.setAttribute("current_user", null);
-		
+		modelMap.addAttribute("userInfo", new UserInfo());
 		return "dashboard/user/login";
 	}
 	
